@@ -13,6 +13,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.Font;
+import javax.swing.JTextPane;
 
 public class Tela extends JFrame {
 
@@ -25,6 +27,8 @@ public class Tela extends JFrame {
 	private JTextField tfGrupoSubarea;
 	private JTextField tfGrupoNomeAluno;
 	private JTextField tfIDGrupo;
+	private JTextField textField;
+	private JTextField txtData;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -213,6 +217,51 @@ public class Tela extends JFrame {
 		JPanel tabOrientacao = new JPanel();
 		tabbedPane.addTab("Definir Orientação", null, tabOrientacao, "Defina Uma Orientação Para Algum Grupo");
 		tabOrientacao.setLayout(null);
+		
+		JLabel lblGrupoID = new JLabel("ID do Grupo");
+		lblGrupoID.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblGrupoID.setBounds(189, 67, 88, 30);
+		tabOrientacao.add(lblGrupoID);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(280, 68, 186, 30);
+		tabOrientacao.add(textField);
+		
+		JButton btnIDBuscar_1 = new JButton("Buscar Grupo");
+		btnIDBuscar_1.setFont(new Font("Trebuchet MS", Font.BOLD, 12));
+		btnIDBuscar_1.setBackground(new Color(0, 255, 64));
+		btnIDBuscar_1.setBounds(476, 67, 123, 30);
+		tabOrientacao.add(btnIDBuscar_1);
+		
+		JLabel lblData = new JLabel("Data");
+		lblData.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblData.setBounds(28, 67, 43, 30);
+		tabOrientacao.add(lblData);
+		
+		txtData = new JTextField();
+		txtData.setColumns(10);
+		txtData.setBounds(67, 67, 112, 30);
+		tabOrientacao.add(txtData);
+		
+		JLabel lblDescricao = new JLabel("Descrição");
+		lblDescricao.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblDescricao.setBounds(28, 138, 112, 30);
+		tabOrientacao.add(lblDescricao);
+		
+		JTextPane txpDescricao = new JTextPane();
+		txpDescricao.setBounds(107, 140, 492, 164);
+		tabOrientacao.add(txpDescricao);
+		
+		JButton btnLancarOrientacao = new JButton("Lançar Orientação");
+		btnLancarOrientacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLancarOrientacao.setFont(new Font("Trebuchet MS", Font.BOLD, 12));
+		btnLancarOrientacao.setBackground(new Color(0, 255, 64));
+		btnLancarOrientacao.setBounds(238, 334, 147, 30);
+		tabOrientacao.add(btnLancarOrientacao);
 
 		JPanel tabConsultaOrientacao = new JPanel();
 		tabbedPane.addTab("Última Orientação", null, tabConsultaOrientacao, "Consulte a Última Orientação Definida");
