@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,10 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import java.awt.Font;
 import javax.swing.JTextPane;
-import javax.swing.DropMode;
+import javax.swing.border.EmptyBorder;
 
 public class Tela extends JFrame {
 
@@ -260,18 +259,18 @@ public class Tela extends JFrame {
 		tabOrientacao.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Definir Orientação", null, tabOrientacao, "Defina Uma Orientação Para Algum Grupo");
 		tabOrientacao.setLayout(null);
-		
+
 		JLabel lblGrupoID = new JLabel("ID do Grupo");
 		lblGrupoID.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		lblGrupoID.setBounds(189, 67, 88, 30);
 		tabOrientacao.add(lblGrupoID);
-		
+
 		textField = new JTextField();
 		textField.setBackground(new Color(248, 248, 248));
 		textField.setColumns(10);
 		textField.setBounds(280, 68, 186, 30);
 		tabOrientacao.add(textField);
-		
+
 		JButton btnIDBuscar_1 = new JButton("Buscar Grupo");
 		btnIDBuscar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -281,28 +280,28 @@ public class Tela extends JFrame {
 		btnIDBuscar_1.setBackground(new Color(0, 255, 64));
 		btnIDBuscar_1.setBounds(476, 67, 123, 30);
 		tabOrientacao.add(btnIDBuscar_1);
-		
+
 		JLabel lblData = new JLabel("Data");
 		lblData.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		lblData.setBounds(28, 67, 43, 30);
 		tabOrientacao.add(lblData);
-		
+
 		txtData = new JTextField();
 		txtData.setBackground(new Color(248, 248, 248));
 		txtData.setColumns(10);
 		txtData.setBounds(67, 67, 112, 30);
 		tabOrientacao.add(txtData);
-		
+
 		JLabel lblDescricao = new JLabel("Descrição");
 		lblDescricao.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		lblDescricao.setBounds(28, 138, 112, 30);
 		tabOrientacao.add(lblDescricao);
-		
+
 		JTextPane txpDescricao = new JTextPane();
 		txpDescricao.setBackground(new Color(248, 248, 248));
 		txpDescricao.setBounds(107, 140, 492, 164);
 		tabOrientacao.add(txpDescricao);
-		
+
 		JButton btnLancarOrientacao = new JButton("Lançar Orientação");
 		btnLancarOrientacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -312,7 +311,7 @@ public class Tela extends JFrame {
 		btnLancarOrientacao.setBackground(new Color(0, 255, 64));
 		btnLancarOrientacao.setBounds(232, 328, 159, 38);
 		tabOrientacao.add(btnLancarOrientacao);
-		
+
 		JButton btnIDSair_1 = new JButton("Sair ->");
 		btnIDSair_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnIDSair_1.setBackground(new Color(255, 128, 64));

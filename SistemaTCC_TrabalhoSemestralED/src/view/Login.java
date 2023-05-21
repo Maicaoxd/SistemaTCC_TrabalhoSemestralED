@@ -25,9 +25,6 @@ public class Login extends JFrame {
 	private JTextField txfUser;
 	private JPasswordField passfSenha;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
