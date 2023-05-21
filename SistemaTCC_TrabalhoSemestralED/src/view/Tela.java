@@ -27,8 +27,9 @@ public class Tela extends JFrame {
 	private JTextField tfGrupoSubarea;
 	private JTextField tfGrupoNomeAluno;
 	private JTextField tfIDGrupo;
-	private JTextField textField;
-	private JTextField txtData;
+	private JTextField tfOrientacaoGrupo;
+	private JTextField tfOrientacaoData;
+	private JTextField tfOrientacaoDescricao;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -260,68 +261,102 @@ public class Tela extends JFrame {
 		tabbedPane.addTab("Definir Orientação", null, tabOrientacao, "Defina Uma Orientação Para Algum Grupo");
 		tabOrientacao.setLayout(null);
 
-		JLabel lblGrupoID = new JLabel("ID do Grupo");
-		lblGrupoID.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblGrupoID.setBounds(189, 67, 88, 30);
-		tabOrientacao.add(lblGrupoID);
+		JLabel lblOrientacaoGrupo = new JLabel("ID do Grupo");
+		lblOrientacaoGrupo.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblOrientacaoGrupo.setBounds(189, 67, 88, 30);
+		tabOrientacao.add(lblOrientacaoGrupo);
 
-		textField = new JTextField();
-		textField.setBackground(new Color(248, 248, 248));
-		textField.setColumns(10);
-		textField.setBounds(280, 68, 186, 30);
-		tabOrientacao.add(textField);
+		tfOrientacaoGrupo = new JTextField();
+		tfOrientacaoGrupo.setBackground(new Color(248, 248, 248));
+		tfOrientacaoGrupo.setColumns(10);
+		tfOrientacaoGrupo.setBounds(280, 68, 186, 30);
+		tabOrientacao.add(tfOrientacaoGrupo);
 
-		JButton btnIDBuscar_1 = new JButton("Buscar Grupo");
-		btnIDBuscar_1.addActionListener(new ActionListener() {
+		JButton btnOrientacaoBuscar = new JButton("Buscar Grupo");
+		btnOrientacaoBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnIDBuscar_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnIDBuscar_1.setBackground(new Color(0, 255, 64));
-		btnIDBuscar_1.setBounds(476, 67, 123, 30);
-		tabOrientacao.add(btnIDBuscar_1);
+		btnOrientacaoBuscar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnOrientacaoBuscar.setBackground(new Color(0, 255, 64));
+		btnOrientacaoBuscar.setBounds(476, 67, 123, 30);
+		tabOrientacao.add(btnOrientacaoBuscar);
 
-		JLabel lblData = new JLabel("Data");
-		lblData.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblData.setBounds(28, 67, 43, 30);
-		tabOrientacao.add(lblData);
+		JLabel lblOrientacaoData = new JLabel("Data");
+		lblOrientacaoData.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblOrientacaoData.setBounds(28, 67, 43, 30);
+		tabOrientacao.add(lblOrientacaoData);
 
-		txtData = new JTextField();
-		txtData.setBackground(new Color(248, 248, 248));
-		txtData.setColumns(10);
-		txtData.setBounds(67, 67, 112, 30);
-		tabOrientacao.add(txtData);
+		tfOrientacaoData = new JTextField();
+		tfOrientacaoData.setBackground(new Color(248, 248, 248));
+		tfOrientacaoData.setColumns(10);
+		tfOrientacaoData.setBounds(67, 67, 112, 30);
+		tabOrientacao.add(tfOrientacaoData);
 
-		JLabel lblDescricao = new JLabel("Descrição");
-		lblDescricao.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblDescricao.setBounds(28, 138, 112, 30);
-		tabOrientacao.add(lblDescricao);
+		JLabel lblOrientacaoDescricao = new JLabel("Descrição");
+		lblOrientacaoDescricao.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblOrientacaoDescricao.setBounds(28, 138, 112, 30);
+		tabOrientacao.add(lblOrientacaoDescricao);
 
-		JTextPane txpDescricao = new JTextPane();
-		txpDescricao.setBackground(new Color(248, 248, 248));
-		txpDescricao.setBounds(107, 140, 492, 164);
-		tabOrientacao.add(txpDescricao);
-
-		JButton btnLancarOrientacao = new JButton("Lançar Orientação");
-		btnLancarOrientacao.addActionListener(new ActionListener() {
+		JButton btnOrientacaoLancar = new JButton("Lançar Orientação");
+		btnOrientacaoLancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnLancarOrientacao.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnLancarOrientacao.setBackground(new Color(0, 255, 64));
-		btnLancarOrientacao.setBounds(232, 328, 159, 38);
-		tabOrientacao.add(btnLancarOrientacao);
+		btnOrientacaoLancar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnOrientacaoLancar.setBackground(new Color(0, 255, 64));
+		btnOrientacaoLancar.setBounds(232, 328, 159, 38);
+		tabOrientacao.add(btnOrientacaoLancar);
 
-		JButton btnIDSair_1 = new JButton("Sair ->");
-		btnIDSair_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnIDSair_1.setBackground(new Color(255, 128, 64));
-		btnIDSair_1.setBounds(530, 11, 89, 23);
-		tabOrientacao.add(btnIDSair_1);
+		JButton btnOrientacaoSair = new JButton("Sair ->");
+		btnOrientacaoSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnOrientacaoSair.setBackground(new Color(255, 128, 64));
+		btnOrientacaoSair.setBounds(530, 11, 89, 23);
+		tabOrientacao.add(btnOrientacaoSair);
+		
+		tfOrientacaoDescricao = new JTextField();
+		tfOrientacaoDescricao.setColumns(10);
+		tfOrientacaoDescricao.setBackground(new Color(248, 248, 248));
+		tfOrientacaoDescricao.setBounds(104, 144, 418, 173);
+		tabOrientacao.add(tfOrientacaoDescricao);
 
 		JPanel tabConsultaOrientacao = new JPanel();
 		tabConsultaOrientacao.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Última Orientação", null, tabConsultaOrientacao, "Consulte a Última Orientação Definida");
 		tabConsultaOrientacao.setLayout(null);
+		
+		JLabel lblUltimaGrupo = new JLabel("ID do Grupo");
+		lblUltimaGrupo.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblUltimaGrupo.setBounds(322, 65, 88, 30);
+		tabConsultaOrientacao.add(lblUltimaGrupo);
+		
+		JLabel lblUltimaData = new JLabel("Data");
+		lblUltimaData.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblUltimaData.setBounds(69, 66, 43, 30);
+		tabConsultaOrientacao.add(lblUltimaData);
+		
+		JLabel lblUltimaDescricao = new JLabel("Descrição");
+		lblUltimaDescricao.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblUltimaDescricao.setBounds(28, 138, 112, 30);
+		tabConsultaOrientacao.add(lblUltimaDescricao);
+		
+		JButton btnUltimaSair = new JButton("Sair ->");
+		btnUltimaSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnUltimaSair.setBackground(new Color(255, 128, 64));
+		btnUltimaSair.setBounds(530, 11, 89, 23);
+		tabConsultaOrientacao.add(btnUltimaSair);
+		
+		JTextArea taUltimaGrupo = new JTextArea();
+		taUltimaGrupo.setBounds(413, 65, 186, 30);
+		tabConsultaOrientacao.add(taUltimaGrupo);
+		
+		JTextArea taUltimaData = new JTextArea();
+		taUltimaData.setBounds(107, 69, 186, 30);
+		tabConsultaOrientacao.add(taUltimaData);
+		
+		JTextArea taUltimaDescricao = new JTextArea();
+		taUltimaDescricao.setBounds(107, 142, 492, 164);
+		tabConsultaOrientacao.add(taUltimaDescricao);
 
 		JPanel tabConsultaSubarea = new JPanel();
 		tabConsultaSubarea.setBackground(new Color(255, 255, 255));
