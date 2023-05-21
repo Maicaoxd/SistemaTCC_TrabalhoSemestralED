@@ -95,6 +95,12 @@ public class Tela extends JFrame {
 		tabAluno.add(btnAlunoCadastrar);
 
 		JButton btnAlunoSair = new JButton("Sair ->");
+		btnAlunoSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+				
+			}
+		});
 		btnAlunoSair.setForeground(new Color(0, 0, 0));
 		btnAlunoSair.setBackground(new Color(255, 128, 64));
 		btnAlunoSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -107,6 +113,11 @@ public class Tela extends JFrame {
 		tabGrupo.setLayout(null);
 
 		JButton btnGrupoSair = new JButton("Sair ->");
+		btnGrupoSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnGrupoSair.setBackground(new Color(255, 128, 64));
 		btnGrupoSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnGrupoSair.setBounds(530, 11, 89, 23);
@@ -184,6 +195,11 @@ public class Tela extends JFrame {
 		tabbedPane.addTab("Localizar Grupo", null, tabID, "Localizar Grupo Por ID");
 
 		JButton btnIDSair = new JButton("Sair ->");
+		btnIDSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnIDSair.setBackground(new Color(255, 128, 64));
 		btnIDSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnIDSair.setBounds(530, 11, 89, 23);
@@ -308,6 +324,7 @@ public class Tela extends JFrame {
 		btnOrientacaoLancar.setBounds(232, 328, 159, 38);
 		tabOrientacao.add(btnOrientacaoLancar);
 
+<<<<<<< HEAD
 		JButton btnOrientacaoSair = new JButton("Sair ->");
 		btnOrientacaoSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnOrientacaoSair.setBackground(new Color(255, 128, 64));
@@ -319,12 +336,25 @@ public class Tela extends JFrame {
 		tfOrientacaoDescricao.setBackground(new Color(248, 248, 248));
 		tfOrientacaoDescricao.setBounds(104, 144, 418, 173);
 		tabOrientacao.add(tfOrientacaoDescricao);
+=======
+		JButton btnIDSair_1 = new JButton("Sair ->");
+		btnIDSair_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnIDSair_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnIDSair_1.setBackground(new Color(255, 128, 64));
+		btnIDSair_1.setBounds(530, 11, 89, 23);
+		tabOrientacao.add(btnIDSair_1);
+>>>>>>> 572860f56a373bcecfabc09531ab04c026939fb6
 
 		JPanel tabConsultaOrientacao = new JPanel();
 		tabConsultaOrientacao.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Última Orientação", null, tabConsultaOrientacao, "Consulte a Última Orientação Definida");
 		tabConsultaOrientacao.setLayout(null);
 		
+<<<<<<< HEAD
 		JLabel lblUltimaGrupo = new JLabel("ID do Grupo");
 		lblUltimaGrupo.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		lblUltimaGrupo.setBounds(322, 65, 88, 30);
@@ -357,11 +387,34 @@ public class Tela extends JFrame {
 		JTextArea taUltimaDescricao = new JTextArea();
 		taUltimaDescricao.setBounds(107, 142, 492, 164);
 		tabConsultaOrientacao.add(taUltimaDescricao);
+=======
+		JButton btnIDSair_1_1 = new JButton("Sair ->");
+		btnIDSair_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnIDSair_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnIDSair_1_1.setBackground(new Color(255, 128, 64));
+		btnIDSair_1_1.setBounds(530, 11, 89, 23);
+		tabConsultaOrientacao.add(btnIDSair_1_1);
+>>>>>>> 572860f56a373bcecfabc09531ab04c026939fb6
 
 		JPanel tabConsultaSubarea = new JPanel();
 		tabConsultaSubarea.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Consultar Por Subárea", null, tabConsultaSubarea,
 				"Consulte Uma Lista de Grupos Por Subárea");
 		tabConsultaSubarea.setLayout(null);
+		
+		JButton btnIDSair_1_1_1 = new JButton("Sair ->");
+		btnIDSair_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnIDSair_1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnIDSair_1_1_1.setBackground(new Color(255, 128, 64));
+		btnIDSair_1_1_1.setBounds(530, 11, 89, 23);
+		tabConsultaSubarea.add(btnIDSair_1_1_1);
 	}
 }
