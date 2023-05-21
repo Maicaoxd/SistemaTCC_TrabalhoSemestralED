@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
@@ -97,7 +98,11 @@ public class Tela extends JFrame {
 		JButton btnAlunoSair = new JButton("Sair ->");
 		btnAlunoSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
+				          "Saída",JOptionPane.YES_NO_OPTION);
+				          if (i == JOptionPane.YES_OPTION ) {
+				            System.exit(0);
+				          }
 				
 			}
 		});
@@ -115,7 +120,11 @@ public class Tela extends JFrame {
 		JButton btnGrupoSair = new JButton("Sair ->");
 		btnGrupoSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
+				          "Saída",JOptionPane.YES_NO_OPTION);
+				          if (i == JOptionPane.YES_OPTION ) {
+				            System.exit(0);
+				          }
 			}
 		});
 		btnGrupoSair.setBackground(new Color(255, 128, 64));
@@ -197,7 +206,11 @@ public class Tela extends JFrame {
 		JButton btnIDSair = new JButton("Sair ->");
 		btnIDSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
+				          "Saída",JOptionPane.YES_NO_OPTION);
+				          if (i == JOptionPane.YES_OPTION ) {
+				            System.exit(0);
+				          }
 			}
 		});
 		btnIDSair.setBackground(new Color(255, 128, 64));
@@ -340,7 +353,11 @@ public class Tela extends JFrame {
 		JButton btnIDSair_1 = new JButton("Sair ->");
 		btnIDSair_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
+				          "Saída",JOptionPane.YES_NO_OPTION);
+				          if (i == JOptionPane.YES_OPTION ) {
+				            System.exit(0);
+				          }
 			}
 		});
 		btnIDSair_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -391,7 +408,11 @@ public class Tela extends JFrame {
 		JButton btnIDSair_1_1 = new JButton("Sair ->");
 		btnIDSair_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
+				          "Saída",JOptionPane.YES_NO_OPTION);
+				          if (i == JOptionPane.YES_OPTION ) {
+				            System.exit(0);
+				          }
 			}
 		});
 		btnIDSair_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -409,7 +430,11 @@ public class Tela extends JFrame {
 		JButton btnIDSair_1_1_1 = new JButton("Sair ->");
 		btnIDSair_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
+				          "Saída",JOptionPane.YES_NO_OPTION);
+				          if (i == JOptionPane.YES_OPTION ) {
+				            System.exit(0);
+				          }
 			}
 		});
 		btnIDSair_1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
