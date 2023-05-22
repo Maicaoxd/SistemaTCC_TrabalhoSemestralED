@@ -16,7 +16,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import entidades.Administrador;
+import model.Orientador;
 
 public class Login extends JFrame {
 
@@ -40,7 +40,7 @@ public class Login extends JFrame {
 
 	public Login() {
 
-		Administrador adm = new Administrador("ADMIN", "1234");
+		Orientador adm = new Orientador("ADMIN", "1234");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 613, 480);
