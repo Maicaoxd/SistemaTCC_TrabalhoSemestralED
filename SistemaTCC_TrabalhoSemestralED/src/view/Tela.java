@@ -339,6 +339,15 @@ public class Tela extends JFrame {
 
 
 		JButton btnOrientacaoSair = new JButton("Sair ->");
+		btnOrientacaoSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
+				          "Saída",JOptionPane.YES_NO_OPTION);
+				          if (i == JOptionPane.YES_OPTION ) {
+				            System.exit(0);
+				          }
+			}
+		});
 		btnOrientacaoSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnOrientacaoSair.setBackground(new Color(255, 128, 64));
 		btnOrientacaoSair.setBounds(530, 11, 89, 23);
@@ -388,6 +397,15 @@ public class Tela extends JFrame {
 		tabConsultaOrientacao.add(lblUltimaDescricao);
 		
 		JButton btnUltimaSair = new JButton("Sair ->");
+		btnUltimaSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
+				          "Saída",JOptionPane.YES_NO_OPTION);
+				          if (i == JOptionPane.YES_OPTION ) {
+				            System.exit(0);
+				          }
+			}
+		});
 		btnUltimaSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnUltimaSair.setBackground(new Color(255, 128, 64));
 		btnUltimaSair.setBounds(530, 11, 89, 23);
