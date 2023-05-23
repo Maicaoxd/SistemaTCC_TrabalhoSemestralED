@@ -3,7 +3,7 @@ package model;
 public class Subarea {
 	private String nome;
 	private Area area;
-	
+
 	public Subarea() {
 	}
 
@@ -22,8 +22,5 @@ public class Subarea {
 	public void setArea(Area area) {
 		this.area = area;
 	}
-	
 
-		
-	
 }

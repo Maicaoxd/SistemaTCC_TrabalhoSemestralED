@@ -2,7 +2,7 @@ package model;
 
 public class Area {
 	private String nome;
-	
+
 	public Area() {
 	}
 

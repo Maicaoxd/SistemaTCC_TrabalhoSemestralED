@@ -11,7 +11,7 @@ public class Orientador {
 		this.usuario = usuario;
 		this.senha = senha;
 	}
-	
+
 	public String getUsuario() {
 		return usuario;
 	}
@@ -27,11 +27,11 @@ public class Orientador {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
