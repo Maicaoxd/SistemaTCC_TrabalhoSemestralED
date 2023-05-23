@@ -14,8 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
+
+import controller.InserirAlunos;
 
 public class Tela extends JFrame {
 
@@ -98,12 +99,12 @@ public class Tela extends JFrame {
 		JButton btnAlunoSair = new JButton("Sair ->");
 		btnAlunoSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
-				          "Saída",JOptionPane.YES_NO_OPTION);
-				          if (i == JOptionPane.YES_OPTION ) {
-				            System.exit(0);
-				          }
-				
+				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
+						JOptionPane.YES_NO_OPTION);
+				if (i == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+
 			}
 		});
 		btnAlunoSair.setForeground(new Color(0, 0, 0));
@@ -120,11 +121,11 @@ public class Tela extends JFrame {
 		JButton btnGrupoSair = new JButton("Sair ->");
 		btnGrupoSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
-				          "Saída",JOptionPane.YES_NO_OPTION);
-				          if (i == JOptionPane.YES_OPTION ) {
-				            System.exit(0);
-				          }
+				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
+						JOptionPane.YES_NO_OPTION);
+				if (i == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 			}
 		});
 		btnGrupoSair.setBackground(new Color(255, 128, 64));
@@ -206,11 +207,11 @@ public class Tela extends JFrame {
 		JButton btnIDSair = new JButton("Sair ->");
 		btnIDSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
-				          "Saída",JOptionPane.YES_NO_OPTION);
-				          if (i == JOptionPane.YES_OPTION ) {
-				            System.exit(0);
-				          }
+				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
+						JOptionPane.YES_NO_OPTION);
+				if (i == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 			}
 		});
 		btnIDSair.setBackground(new Color(255, 128, 64));
@@ -337,22 +338,21 @@ public class Tela extends JFrame {
 		btnOrientacaoLancar.setBounds(232, 328, 159, 38);
 		tabOrientacao.add(btnOrientacaoLancar);
 
-
 		JButton btnOrientacaoSair = new JButton("Sair ->");
 		btnOrientacaoSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
-				          "Saída",JOptionPane.YES_NO_OPTION);
-				          if (i == JOptionPane.YES_OPTION ) {
-				            System.exit(0);
-				          }
+				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
+						JOptionPane.YES_NO_OPTION);
+				if (i == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 			}
 		});
 		btnOrientacaoSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnOrientacaoSair.setBackground(new Color(255, 128, 64));
 		btnOrientacaoSair.setBounds(530, 11, 89, 23);
 		tabOrientacao.add(btnOrientacaoSair);
-		
+
 		tfOrientacaoDescricao = new JTextField();
 		tfOrientacaoDescricao.setColumns(10);
 		tfOrientacaoDescricao.setBackground(new Color(248, 248, 248));
@@ -362,11 +362,11 @@ public class Tela extends JFrame {
 		JButton btnIDSair_1 = new JButton("Sair ->");
 		btnIDSair_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
-				          "Saída",JOptionPane.YES_NO_OPTION);
-				          if (i == JOptionPane.YES_OPTION ) {
-				            System.exit(0);
-				          }
+				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
+						JOptionPane.YES_NO_OPTION);
+				if (i == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 			}
 		});
 		btnIDSair_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -374,51 +374,49 @@ public class Tela extends JFrame {
 		btnIDSair_1.setBounds(530, 11, 89, 23);
 		tabOrientacao.add(btnIDSair_1);
 
-
 		JPanel tabConsultaOrientacao = new JPanel();
 		tabConsultaOrientacao.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Última Orientação", null, tabConsultaOrientacao, "Consulte a Última Orientação Definida");
 		tabConsultaOrientacao.setLayout(null);
-		
 
 		JLabel lblUltimaGrupo = new JLabel("ID do Grupo");
 		lblUltimaGrupo.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		lblUltimaGrupo.setBounds(322, 65, 88, 30);
 		tabConsultaOrientacao.add(lblUltimaGrupo);
-		
+
 		JLabel lblUltimaData = new JLabel("Data");
 		lblUltimaData.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		lblUltimaData.setBounds(69, 66, 43, 30);
 		tabConsultaOrientacao.add(lblUltimaData);
-		
+
 		JLabel lblUltimaDescricao = new JLabel("Descrição");
 		lblUltimaDescricao.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		lblUltimaDescricao.setBounds(28, 138, 112, 30);
 		tabConsultaOrientacao.add(lblUltimaDescricao);
-		
+
 		JButton btnUltimaSair = new JButton("Sair ->");
 		btnUltimaSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
-				          "Saída",JOptionPane.YES_NO_OPTION);
-				          if (i == JOptionPane.YES_OPTION ) {
-				            System.exit(0);
-				          }
+				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
+						JOptionPane.YES_NO_OPTION);
+				if (i == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 			}
 		});
 		btnUltimaSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnUltimaSair.setBackground(new Color(255, 128, 64));
 		btnUltimaSair.setBounds(530, 11, 89, 23);
 		tabConsultaOrientacao.add(btnUltimaSair);
-		
+
 		JTextArea taUltimaGrupo = new JTextArea();
 		taUltimaGrupo.setBounds(413, 65, 186, 30);
 		tabConsultaOrientacao.add(taUltimaGrupo);
-		
+
 		JTextArea taUltimaData = new JTextArea();
 		taUltimaData.setBounds(107, 69, 186, 30);
 		tabConsultaOrientacao.add(taUltimaData);
-		
+
 		JTextArea taUltimaDescricao = new JTextArea();
 		taUltimaDescricao.setBounds(107, 142, 492, 164);
 		tabConsultaOrientacao.add(taUltimaDescricao);
@@ -426,11 +424,11 @@ public class Tela extends JFrame {
 		JButton btnIDSair_1_1 = new JButton("Sair ->");
 		btnIDSair_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
-				          "Saída",JOptionPane.YES_NO_OPTION);
-				          if (i == JOptionPane.YES_OPTION ) {
-				            System.exit(0);
-				          }
+				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
+						JOptionPane.YES_NO_OPTION);
+				if (i == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 			}
 		});
 		btnIDSair_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -438,26 +436,28 @@ public class Tela extends JFrame {
 		btnIDSair_1_1.setBounds(530, 11, 89, 23);
 		tabConsultaOrientacao.add(btnIDSair_1_1);
 
-
 		JPanel tabConsultaSubarea = new JPanel();
 		tabConsultaSubarea.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Consultar Por Subárea", null, tabConsultaSubarea,
 				"Consulte Uma Lista de Grupos Por Subárea");
 		tabConsultaSubarea.setLayout(null);
-		
+
 		JButton btnIDSair_1_1_1 = new JButton("Sair ->");
 		btnIDSair_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null ,"Deseja fechar a aplicação?",
-				          "Saída",JOptionPane.YES_NO_OPTION);
-				          if (i == JOptionPane.YES_OPTION ) {
-				            System.exit(0);
-				          }
+				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
+						JOptionPane.YES_NO_OPTION);
+				if (i == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 			}
 		});
 		btnIDSair_1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnIDSair_1_1_1.setBackground(new Color(255, 128, 64));
 		btnIDSair_1_1_1.setBounds(530, 11, 89, 23);
 		tabConsultaSubarea.add(btnIDSair_1_1_1);
+
+		InserirAlunos cAlunos = new InserirAlunos(tfAlunoNome, tfAlunoRa);
+		btnAlunoCadastrar.addActionListener(cAlunos);
 	}
 }
