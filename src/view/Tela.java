@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.InserirAlunos;
+import controller.InserirGrupos;
 
 public class Tela extends JFrame {
 
@@ -27,7 +28,7 @@ public class Tela extends JFrame {
 	private JTextField tfGrupoTema;
 	private JTextField tfGrupoArea;
 	private JTextField tfGrupoSubarea;
-	private JTextField tfGrupoNomeAluno;
+	private JTextField tfGrupoRaAluno;
 	private JTextField tfIDGrupo;
 	private JTextField tfOrientacaoGrupo;
 	private JTextField tfOrientacaoData;
@@ -166,16 +167,16 @@ public class Tela extends JFrame {
 		tfGrupoSubarea.setBounds(355, 94, 160, 30);
 		tabGrupo.add(tfGrupoSubarea);
 
-		JLabel lblGrupoNomeAluno = new JLabel("Nome do Aluno");
-		lblGrupoNomeAluno.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblGrupoNomeAluno.setBounds(10, 135, 108, 30);
-		tabGrupo.add(lblGrupoNomeAluno);
+		JLabel lblGrupoRaAluno = new JLabel("RA do Aluno");
+		lblGrupoRaAluno.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblGrupoRaAluno.setBounds(10, 135, 108, 30);
+		tabGrupo.add(lblGrupoRaAluno);
 
-		tfGrupoNomeAluno = new JTextField();
-		tfGrupoNomeAluno.setBackground(new Color(248, 248, 248));
-		tfGrupoNomeAluno.setColumns(10);
-		tfGrupoNomeAluno.setBounds(118, 135, 348, 30);
-		tabGrupo.add(tfGrupoNomeAluno);
+		tfGrupoRaAluno = new JTextField();
+		tfGrupoRaAluno.setBackground(new Color(248, 248, 248));
+		tfGrupoRaAluno.setColumns(10);
+		tfGrupoRaAluno.setBounds(118, 135, 348, 30);
+		tabGrupo.add(tfGrupoRaAluno);
 
 		JTextArea taGrupoListaAluno = new JTextArea();
 		taGrupoListaAluno.setBackground(new Color(248, 248, 248));
@@ -187,11 +188,11 @@ public class Tela extends JFrame {
 		lblGrupoListaAluno.setBounds(10, 176, 108, 30);
 		tabGrupo.add(lblGrupoListaAluno);
 
-		JButton btnGrupoAdicionaAluno = new JButton("Adicionar Aluno");
-		btnGrupoAdicionaAluno.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnGrupoAdicionaAluno.setBackground(new Color(0, 255, 64));
-		btnGrupoAdicionaAluno.setBounds(476, 135, 143, 30);
-		tabGrupo.add(btnGrupoAdicionaAluno);
+		JButton btnGrupoBuscar = new JButton("Buscar Aluno");
+		btnGrupoBuscar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnGrupoBuscar.setBackground(new Color(0, 255, 64));
+		btnGrupoBuscar.setBounds(476, 135, 143, 30);
+		tabGrupo.add(btnGrupoBuscar);
 
 		JButton btnGrupoCadastrar = new JButton("Registrar Grupo");
 		btnGrupoCadastrar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -458,6 +459,10 @@ public class Tela extends JFrame {
 		tabConsultaSubarea.add(btnIDSair_1_1_1);
 
 		InserirAlunos cAlunos = new InserirAlunos(tfAlunoNome, tfAlunoRa);
+		InserirGrupos cGrupos = new InserirGrupos(tfGrupoTema, tfGrupoArea, tfGrupoSubarea, tfGrupoRaAluno,
+				taGrupoListaAluno);
+
 		btnAlunoCadastrar.addActionListener(cAlunos);
+		btnGrupoBuscar.addActionListener(cGrupos);
 	}
 }

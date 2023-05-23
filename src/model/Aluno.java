@@ -22,4 +22,10 @@ public class Aluno {
 	public String getRA() {
 		return ra;
 	}
+
+	@Override
+	public String toString() {
+		return getNome() + ";" + getRA();
+	}
+
 }

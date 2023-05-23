@@ -4,6 +4,9 @@ import br.edu.fateczl.lista.listaObj.Lista;
 
 public class Grupo {
 
+	Area area = new Area();
+	Subarea subarea = new Subarea();
+
 	private int codigo;
 	private String tema;
 	private Lista integrantes;
@@ -30,6 +33,11 @@ public class Grupo {
 
 	public Lista getIntegrantes() {
 		return integrantes;
+	}
+
+	@Override
+	public String toString() {
+		return getCodigo() + ";" + getTema() + ";" + area.getNome() + ";" + subarea.getNome() + ";" + getIntegrantes();
 	}
 
 }

@@ -2,6 +2,10 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.swing.JTextField;
 
@@ -22,18 +26,40 @@ public class InserirAlunos implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 		if (cmd.equals("Registrar")) {
-			registrar();
+			try {
+				registrar();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 
-	private void registrar() {
+	private void registrar() throws IOException {
 		Aluno aluno = new Aluno();
 		aluno.setNome(tfAlunoNome.getText());
 		aluno.setRA(tfAlunoRa.getText());
-
-		System.out.println(aluno.getNome());
+		registraAluno(aluno.toString());
 		tfAlunoNome.setText("");
 		tfAlunoRa.setText("");
+	}
+
+	private void registraAluno(String csvAluno) throws IOException {
+		String path = System.getProperty("user.home") + File.separator + "SistemaTCC";
+		File dir = new File(path);
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+		File arq = new File(path, "alunos.csv");
+		boolean existe = false;
+		if (arq.exists()) {
+			existe = true;
+		}
+		FileWriter fw = new FileWriter(arq, existe);
+		PrintWriter pw = new PrintWriter(fw);
+		pw.write(csvAluno + "\r\n");
+		pw.flush();
+		pw.close();
+		fw.close();
 	}
 
 }
