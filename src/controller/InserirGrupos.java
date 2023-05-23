@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import br.edu.fateczl.lista.listaObj.Lista;
 import model.Aluno;
 
 public class InserirGrupos implements ActionListener {
@@ -44,10 +45,15 @@ public class InserirGrupos implements ActionListener {
 
 	private void buscar() throws IOException {
 		Aluno aluno = new Aluno();
+		Lista grupo = new Lista();
+		
 		aluno.setRA(tfGrupoRaAluno.getText());
 		aluno = buscaAluno(aluno);
+		
 		if (aluno.getNome() != null) {
-			taGrupoListaAluno.setText("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome());
+			grupo.addFirst(aluno);
+			taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome()+ "\n\r");
+			
 		} else {
 			taGrupoListaAluno.setText("Aluno não encontrado");
 		}
