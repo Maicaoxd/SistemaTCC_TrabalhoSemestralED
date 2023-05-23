@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +13,7 @@ import javax.swing.JTextField;
 
 import model.Aluno;
 
-public class InserirGrupos {
+public class InserirGrupos implements ActionListener {
 //	Uma tela que permita ao orientador inserir, em um arquivo csv, os grupos.
 
 	private JTextField tfGrupoTema;
@@ -45,11 +46,12 @@ public class InserirGrupos {
 		Aluno aluno = new Aluno();
 		aluno.setRA(tfGrupoRaAluno.getText());
 		aluno = buscaAluno(aluno);
-		if (aluno.getRA() != null) {
+		if (aluno.getNome() != null) {
 			taGrupoListaAluno.setText("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome());
 		} else {
 			taGrupoListaAluno.setText("Aluno não encontrado");
 		}
+		tfGrupoRaAluno.setText("");
 	}
 
 	private Aluno buscaAluno(Aluno aluno) throws IOException {
