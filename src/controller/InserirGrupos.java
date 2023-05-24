@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import br.edu.fateczl.lista.listaObj.Lista;
+import br.edu.fateczl.listas.Lista;
 import model.Aluno;
 import model.Area;
 import model.Grupo;
@@ -103,7 +103,7 @@ public class InserirGrupos implements ActionListener {
 		if (aluno.getNome() != null) {
 
 			taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome() + "\n\r");
-			lista.addFirst(aluno);
+			lista.addfirst(aluno);
 
 		} else {
 			taGrupoListaAluno.setText("Aluno não encontrado");

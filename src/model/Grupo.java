@@ -1,6 +1,6 @@
 package model;
 
-import br.edu.fateczl.lista.listaObj.Lista;
+import br.edu.fateczl.listas.Lista;
 
 public class Grupo {
 	private int codigo;
