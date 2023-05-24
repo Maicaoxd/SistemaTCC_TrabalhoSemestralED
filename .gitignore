@@ -87,7 +87,6 @@ org.eclipse.jdt.core.prefs
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear

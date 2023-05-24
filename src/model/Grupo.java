@@ -36,7 +36,6 @@ public class Grupo {
 		File arquivo = new File(path);
 
 		if (!arquivo.exists()) {
-//			se o arquivo não existe dentro do diretório
 			return 1;
 		} else {
 			Pilha leitura = new Pilha();
