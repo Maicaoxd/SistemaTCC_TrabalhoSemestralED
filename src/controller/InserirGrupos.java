@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import br.edu.fateczl.lista.listaObj.Lista;
 import model.Aluno;
 import model.Area;
 import model.Grupo;
@@ -25,6 +26,7 @@ public class InserirGrupos implements ActionListener {
 	private JTextField tfGrupoSubarea;
 	private JTextField tfGrupoRaAluno;
 	private JTextArea taGrupoListaAluno;
+	Grupo grupo = new Grupo();
 
 	public InserirGrupos(JTextField tfGrupoTema, JTextField tfGrupoArea, JTextField tfGrupoSubarea,
 			JTextField tfGrupoRaAluno, JTextArea taGrupoListaAluno) {
@@ -37,10 +39,9 @@ public class InserirGrupos implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-		Grupo grupo = new Grupo();
 		try {
 			if (cmd.equals("Buscar Aluno")) {
-				buscar(grupo);
+				grupo.setIntegrantes(buscar(grupo));
 				tfGrupoRaAluno.setText("");
 			} else if (cmd.equals("Registrar Grupo")) {
 				registrar(grupo);
@@ -58,15 +59,15 @@ public class InserirGrupos implements ActionListener {
 	private void registrar(Grupo grupo) throws IOException {
 		Area area = new Area();
 		Subarea subarea = new Subarea();
-		
+
 		grupo.setTema(tfGrupoTema.getText());
-		
+
 		area.setNome(tfGrupoArea.getText());
 		grupo.setArea(area);
 
 		subarea.setNome(tfGrupoSubarea.getText());
 		grupo.setSubarea(subarea);
-		
+
 		registraGrupo(grupo.toString());
 
 	}
@@ -92,8 +93,8 @@ public class InserirGrupos implements ActionListener {
 		fw.close();
 	}
 
-	private void buscar(Grupo grupo) throws IOException {
-
+	private Lista buscar(Grupo grupo) throws IOException {
+		Lista lista = new Lista();
 		Aluno aluno = new Aluno();
 
 		aluno.setRA(tfGrupoRaAluno.getText());
@@ -102,11 +103,12 @@ public class InserirGrupos implements ActionListener {
 		if (aluno.getNome() != null) {
 
 			taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome() + "\n\r");
-			grupo.setIntegrantes(aluno);
+			lista.addFirst(aluno);
 
 		} else {
 			taGrupoListaAluno.setText("Aluno não encontrado");
 		}
+		return lista;
 	}
 
 	private Aluno buscaAluno(Aluno aluno) throws IOException {

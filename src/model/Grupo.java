@@ -7,7 +7,7 @@ public class Grupo {
 	private String tema;
 	private Area area;
 	private Subarea subarea;
-	private Lista integrantes;
+	public Lista integrantes;
 
 	public Grupo() {
 	}
@@ -48,13 +48,14 @@ public class Grupo {
 		return integrantes;
 	}
 
-	public void setIntegrantes(Aluno aluno) {
-		integrantes.addFirst(aluno);
+	public void setIntegrantes(Lista integrantes) {
+		this.integrantes = integrantes;
 	}
 
 	@Override
 	public String toString() {
-		return getCodigo() + ";" + getTema() + ";" + area.getNome() + ";" + subarea.getNome() + ";" + getIntegrantes();
+		return getCodigo() + ";" + getTema() + ";" + area.getNome() + ";" + subarea.getNome() + ";"
+				+ integrantes.toString();
 	}
 
 }
