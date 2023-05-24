@@ -33,6 +33,7 @@ public class Tela extends JFrame {
 	private JTextField tfOrientacaoGrupo;
 	private JTextField tfOrientacaoData;
 	private JTextField tfOrientacaoDescricao;
+	private JTextField tfSubSubarea;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -411,14 +412,17 @@ public class Tela extends JFrame {
 		tabConsultaOrientacao.add(btnUltimaSair);
 
 		JTextArea taUltimaGrupo = new JTextArea();
+		taUltimaGrupo.setBackground(new Color(248, 248, 248));
 		taUltimaGrupo.setBounds(413, 65, 186, 30);
 		tabConsultaOrientacao.add(taUltimaGrupo);
 
 		JTextArea taUltimaData = new JTextArea();
+		taUltimaData.setBackground(new Color(248, 248, 248));
 		taUltimaData.setBounds(107, 69, 186, 30);
 		tabConsultaOrientacao.add(taUltimaData);
 
 		JTextArea taUltimaDescricao = new JTextArea();
+		taUltimaDescricao.setBackground(new Color(248, 248, 248));
 		taUltimaDescricao.setBounds(107, 142, 492, 164);
 		tabConsultaOrientacao.add(taUltimaDescricao);
 
@@ -457,6 +461,31 @@ public class Tela extends JFrame {
 		btnIDSair_1_1_1.setBackground(new Color(255, 128, 64));
 		btnIDSair_1_1_1.setBounds(530, 11, 89, 23);
 		tabConsultaSubarea.add(btnIDSair_1_1_1);
+		
+		JLabel lblSubSubarea = new JLabel("Subárea");
+		lblSubSubarea.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblSubSubarea.setBounds(80, 60, 80, 40);
+		tabConsultaSubarea.add(lblSubSubarea);
+		
+		JLabel lblSubListaGrupos = new JLabel("Lista de Grupos");
+		lblSubListaGrupos.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		lblSubListaGrupos.setBounds(40, 125, 120, 40);
+		tabConsultaSubarea.add(lblSubListaGrupos);
+		
+		tfSubSubarea = new JTextField();
+		tfSubSubarea.setBounds(150, 66, 320, 30);
+		tabConsultaSubarea.add(tfSubSubarea);
+		tfSubSubarea.setColumns(10);
+		
+		JButton btnSubBuscar = new JButton("Buscar Grupos");
+		btnSubBuscar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnSubBuscar.setBounds(480, 65, 123, 30);
+		tabConsultaSubarea.add(btnSubBuscar);
+		
+		JTextArea taSubListaGrupos = new JTextArea();
+		taSubListaGrupos.setBackground(new Color(248, 248, 248));
+		taSubListaGrupos.setBounds(150, 134, 320, 257);
+		tabConsultaSubarea.add(taSubListaGrupos);
 
 		InserirAlunos cAlunos = new InserirAlunos(tfAlunoNome, tfAlunoRa);
 		InserirGrupos cGrupos = new InserirGrupos(tfGrupoTema, tfGrupoArea, tfGrupoSubarea, tfGrupoRaAluno,
