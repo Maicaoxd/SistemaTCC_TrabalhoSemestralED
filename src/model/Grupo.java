@@ -1,5 +1,11 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+import br.edu.fateczl.pilhas.Pilha;
 import br.edu.fateczl.listas.Lista;
 
 public class Grupo {
@@ -12,10 +18,49 @@ public class Grupo {
 	public Grupo() {
 	}
 
+	public void setCodigo() {
+		try {
+			this.codigo = id();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public int getCodigo() {
 		return codigo;
 	}
 
+	private int id() throws Exception {
+
+		String path = System.getProperty("user.home") + File.separator + "SistemaTCC" + File.separator + "grupos.csv";
+		File arquivo = new File(path);
+
+		if (!arquivo.exists()) {
+			return 1;
+		} else {
+			Pilha leitura = new Pilha();
+
+			FileInputStream fluxo = new FileInputStream(arquivo);
+			InputStreamReader leitor = new InputStreamReader(fluxo);
+			BufferedReader buffer = new BufferedReader(leitor);
+			String linha = buffer.readLine();
+
+			while (linha != null) {
+				leitura.push(linha);
+				linha = buffer.readLine();
+			}
+			String ultimalinha = (String) leitura.pop();
+
+			String[] grupo = ultimalinha.split(";");
+			
+			fluxo.close();
+			leitor.close();
+			buffer.close();
+
+			return Integer.parseInt(grupo[0]) + 1;
+		}
+	}
+	
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
