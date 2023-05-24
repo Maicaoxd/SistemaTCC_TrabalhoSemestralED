@@ -19,7 +19,6 @@ import model.Grupo;
 import model.Subarea;
 
 public class InserirGrupos implements ActionListener {
-//	Uma tela que permita ao orientador inserir, em um arquivo csv, os grupos.
 
 	private JTextField tfGrupoTema;
 	private JTextField tfGrupoArea;
@@ -42,8 +41,14 @@ public class InserirGrupos implements ActionListener {
 		try {
 			if (cmd.equals("Buscar Aluno")) {
 				buscar(grupo);
+				tfGrupoRaAluno.setText("");
 			} else if (cmd.equals("Registrar Grupo")) {
 				registrar(grupo);
+				tfGrupoTema.setText("");
+				tfGrupoArea.setText("");
+				tfGrupoSubarea.setText("");
+				tfGrupoRaAluno.setText("");
+				taGrupoListaAluno.setText("");
 			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -51,29 +56,29 @@ public class InserirGrupos implements ActionListener {
 	}
 
 	private void registrar(Grupo grupo) throws IOException {
+		Area area = new Area();
+		Subarea subarea = new Subarea();
 		
 		grupo.setTema(tfGrupoTema.getText());
 		
-		Area area = new Area();
 		area.setNome(tfGrupoArea.getText());
 		grupo.setArea(area);
-		
-		Subarea subarea = new Subarea();
+
 		subarea.setNome(tfGrupoSubarea.getText());
 		grupo.setSubarea(subarea);
 		
 		registraGrupo(grupo.toString());
-		
+
 	}
-	
+
 	private void registraGrupo(String csvGrupo) throws IOException {
-		
+
 		String path = System.getProperty("user.home") + File.separator + "SistemaTCC";
 		File dir = new File(path);
 		if (!dir.exists()) {
 			dir.mkdir();
 		}
-		
+
 		File arq = new File(path, "grupos.csv");
 		boolean existe = false;
 		if (arq.exists()) {
@@ -102,7 +107,6 @@ public class InserirGrupos implements ActionListener {
 		} else {
 			taGrupoListaAluno.setText("Aluno não encontrado");
 		}
-		tfGrupoRaAluno.setText("");
 	}
 
 	private Aluno buscaAluno(Aluno aluno) throws IOException {

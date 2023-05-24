@@ -1,62 +1,31 @@
 package model;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-
 import br.edu.fateczl.lista.listaObj.Lista;
-import br.edu.fateczl.pilhas.Pilha;
 
 public class Grupo {
-
-	Area area = new Area();
-
-	Subarea subarea = new Subarea();
-
 	private int codigo;
 	private String tema;
+	private Area area;
+	private Subarea subarea;
 	private Lista integrantes;
 
 	public Grupo() {
-
 	}
 
-	public void setCodigo() {
-		try {
-			this.codigo = id();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public int getCodigo() {
+		return codigo;
 	}
 
-	private int id() throws Exception {
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
-		String path = System.getProperty("user.home") + File.separator + "SistemaTCC" + File.separator + "grupos.csv";
-		File arquivo = new File(path);
+	public String getTema() {
+		return tema;
+	}
 
-		if (!arquivo.exists()) {
-			return 1;
-		} else {
-			Pilha leitura = new Pilha();
-
-			FileInputStream fluxo = new FileInputStream(arquivo);
-			InputStreamReader leitor = new InputStreamReader(fluxo);
-			BufferedReader buffer = new BufferedReader(leitor);
-			String linha = buffer.readLine();
-
-			while (linha != null) {
-				leitura.push(linha);
-				linha = buffer.readLine();
-			}
-			String ultimalinha = (String) leitura.pop();
-
-			String[] grupo = ultimalinha.split(";");
-
-			return Integer.parseInt(grupo[0]) + 1;
-
-		}
-
+	public void setTema(String tema) {
+		this.tema = tema;
 	}
 
 	public Area getArea() {
@@ -75,24 +44,12 @@ public class Grupo {
 		this.subarea = subarea;
 	}
 
-	public int getCodigo() {
-		return codigo;
-	}
-
-	public void setTema(String tema) {
-		this.tema = tema;
-	}
-
-	public String getTema() {
-		return tema;
+	public Lista getIntegrantes() {
+		return integrantes;
 	}
 
 	public void setIntegrantes(Aluno aluno) {
 		integrantes.addFirst(aluno);
-	}
-
-	public Lista getIntegrantes() {
-		return integrantes;
 	}
 
 	@Override

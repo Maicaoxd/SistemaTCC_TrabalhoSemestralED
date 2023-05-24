@@ -12,7 +12,6 @@ import javax.swing.JTextField;
 import model.Aluno;
 
 public class InserirAlunos implements ActionListener {
-//	Uma tela que permita ao orientador inserir, em um arquivo csv, os alunos.
 
 	private JTextField tfAlunoNome;
 	private JTextField tfAlunoRa;
