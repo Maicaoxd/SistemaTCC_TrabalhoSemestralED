@@ -5,14 +5,18 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import br.edu.fateczl.lista.listaObj.Lista;
 import model.Aluno;
+import model.Area;
+import model.Grupo;
+import model.Subarea;
 
 public class InserirGrupos implements ActionListener {
 //	Uma tela que permita ao orientador inserir, em um arquivo csv, os grupos.
@@ -34,26 +38,67 @@ public class InserirGrupos implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-		if (cmd.equals("Buscar Aluno")) {
-			try {
-				buscar();
-			} catch (IOException e1) {
-				e1.printStackTrace();
+		Grupo grupo = new Grupo();
+		try {
+			if (cmd.equals("Buscar Aluno")) {
+				buscar(grupo);
+			} else if (cmd.equals("Registrar Grupo")) {
+				registrar(grupo);
 			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
 	}
 
-	private void buscar() throws IOException {
-		Aluno aluno = new Aluno();
-		Lista grupo = new Lista();
+	private void registrar(Grupo grupo) throws IOException {
 		
+		grupo.setTema(tfGrupoTema.getText());
+		
+		Area area = new Area();
+		area.setNome(tfGrupoArea.getText());
+		grupo.setArea(area);
+		
+		Subarea subarea = new Subarea();
+		subarea.setNome(tfGrupoSubarea.getText());
+		grupo.setSubarea(subarea);
+		
+		registraGrupo(grupo.toString());
+		
+	}
+	
+	private void registraGrupo(String csvGrupo) throws IOException {
+		
+		String path = System.getProperty("user.home") + File.separator + "SistemaTCC";
+		File dir = new File(path);
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+		
+		File arq = new File(path, "grupos.csv");
+		boolean existe = false;
+		if (arq.exists()) {
+			existe = true;
+		}
+		FileWriter fw = new FileWriter(arq, existe);
+		PrintWriter pw = new PrintWriter(fw);
+		pw.write(csvGrupo + "\r\n");
+		pw.flush();
+		pw.close();
+		fw.close();
+	}
+
+	private void buscar(Grupo grupo) throws IOException {
+
+		Aluno aluno = new Aluno();
+
 		aluno.setRA(tfGrupoRaAluno.getText());
 		aluno = buscaAluno(aluno);
-		
+
 		if (aluno.getNome() != null) {
-			grupo.addFirst(aluno);
-			taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome()+ "\n\r");
-			
+
+			taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome() + "\n\r");
+			grupo.setIntegrantes(aluno);
+
 		} else {
 			taGrupoListaAluno.setText("Aluno não encontrado");
 		}
