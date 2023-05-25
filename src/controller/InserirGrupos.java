@@ -66,7 +66,7 @@ public class InserirGrupos implements ActionListener {
 		Area area = new Area();
 		Subarea subarea = new Subarea();
 
-		grupo.setCodigo();
+		grupo.ordenaCodigo();
 		grupo.setTema(tfGrupoTema.getText());
 
 		area.setNome(tfGrupoArea.getText());
@@ -122,7 +122,6 @@ public class InserirGrupos implements ActionListener {
 			InputStreamReader leitor = new InputStreamReader(fluxo);
 			BufferedReader buffer = new BufferedReader(leitor);
 			String linha = buffer.readLine();
-			linha = buffer.readLine();
 			while (linha != null) {
 				String[] vetLinha = linha.split(";");
 				if (vetLinha[1].equals(aluno.getRA())) {

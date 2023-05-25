@@ -17,7 +17,7 @@ public class Grupo {
 	public Grupo() {
 	}
 
-	public void setCodigo() {
+	public void ordenaCodigo() {
 		try {
 			this.codigo = id();
 		} catch (Exception e) {

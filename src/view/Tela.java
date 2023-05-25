@@ -16,6 +16,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import controller.ConsultarGrupo;
 import controller.InserirAlunos;
 import controller.InserirGrupos;
 
@@ -204,7 +205,7 @@ public class Tela extends JFrame {
 		JPanel tabID = new JPanel();
 		tabID.setBackground(new Color(255, 255, 255));
 		tabID.setLayout(null);
-		tabbedPane.addTab("Localizar Grupo", null, tabID, "Localizar Grupo Por ID");
+		tabbedPane.addTab("Consultar Grupo", null, tabID, "Localizar Grupo Por ID");
 
 		JButton btnIDSair = new JButton("Sair ->");
 		btnIDSair.addActionListener(new ActionListener() {
@@ -346,6 +347,12 @@ public class Tela extends JFrame {
 		btnOrientacaoLancar.setBounds(232, 328, 159, 38);
 		tabOrientacao.add(btnOrientacaoLancar);
 
+		tfOrientacaoDescricao = new JTextField();
+		tfOrientacaoDescricao.setColumns(10);
+		tfOrientacaoDescricao.setBackground(new Color(248, 248, 248));
+		tfOrientacaoDescricao.setBounds(104, 144, 418, 173);
+		tabOrientacao.add(tfOrientacaoDescricao);
+
 		JButton btnOrientacaoSair = new JButton("Sair ->");
 		btnOrientacaoSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -360,27 +367,6 @@ public class Tela extends JFrame {
 		btnOrientacaoSair.setBackground(new Color(255, 128, 64));
 		btnOrientacaoSair.setBounds(530, 11, 89, 23);
 		tabOrientacao.add(btnOrientacaoSair);
-
-		tfOrientacaoDescricao = new JTextField();
-		tfOrientacaoDescricao.setColumns(10);
-		tfOrientacaoDescricao.setBackground(new Color(248, 248, 248));
-		tfOrientacaoDescricao.setBounds(104, 144, 418, 173);
-		tabOrientacao.add(tfOrientacaoDescricao);
-
-		JButton btnIDSair_1 = new JButton("Sair ->");
-		btnIDSair_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
-						JOptionPane.YES_NO_OPTION);
-				if (i == JOptionPane.YES_OPTION) {
-					System.exit(0);
-				}
-			}
-		});
-		btnIDSair_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnIDSair_1.setBackground(new Color(255, 128, 64));
-		btnIDSair_1.setBounds(530, 11, 89, 23);
-		tabOrientacao.add(btnIDSair_1);
 
 		JPanel tabConsultaOrientacao = new JPanel();
 		tabConsultaOrientacao.setBackground(new Color(255, 255, 255));
@@ -402,21 +388,6 @@ public class Tela extends JFrame {
 		lblUltimaDescricao.setBounds(28, 138, 112, 30);
 		tabConsultaOrientacao.add(lblUltimaDescricao);
 
-		JButton btnUltimaSair = new JButton("Sair ->");
-		btnUltimaSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
-						JOptionPane.YES_NO_OPTION);
-				if (i == JOptionPane.YES_OPTION) {
-					System.exit(0);
-				}
-			}
-		});
-		btnUltimaSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnUltimaSair.setBackground(new Color(255, 128, 64));
-		btnUltimaSair.setBounds(530, 11, 89, 23);
-		tabConsultaOrientacao.add(btnUltimaSair);
-
 		JTextArea taUltimaGrupo = new JTextArea();
 		taUltimaGrupo.setBackground(new Color(248, 248, 248));
 		taUltimaGrupo.setBounds(351, 69, 136, 30);
@@ -432,8 +403,8 @@ public class Tela extends JFrame {
 		taUltimaDescricao.setBounds(107, 142, 492, 164);
 		tabConsultaOrientacao.add(taUltimaDescricao);
 
-		JButton btnIDSair_1_1 = new JButton("Sair ->");
-		btnIDSair_1_1.addActionListener(new ActionListener() {
+		JButton btnUltimaSair = new JButton("Sair ->");
+		btnUltimaSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
 						JOptionPane.YES_NO_OPTION);
@@ -442,10 +413,10 @@ public class Tela extends JFrame {
 				}
 			}
 		});
-		btnIDSair_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnIDSair_1_1.setBackground(new Color(255, 128, 64));
-		btnIDSair_1_1.setBounds(530, 11, 89, 23);
-		tabConsultaOrientacao.add(btnIDSair_1_1);
+		btnUltimaSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnUltimaSair.setBackground(new Color(255, 128, 64));
+		btnUltimaSair.setBounds(530, 11, 89, 23);
+		tabConsultaOrientacao.add(btnUltimaSair);
 
 		JButton btnOrientacaoBuscar_1 = new JButton("Buscar Grupo");
 		btnOrientacaoBuscar_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -459,8 +430,8 @@ public class Tela extends JFrame {
 				"Consulte Uma Lista de Grupos Por Subárea");
 		tabConsultaSubarea.setLayout(null);
 
-		JButton btnIDSair_1_1_1 = new JButton("Sair ->");
-		btnIDSair_1_1_1.addActionListener(new ActionListener() {
+		JButton btnSubSair = new JButton("Sair ->");
+		btnSubSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int i = JOptionPane.showConfirmDialog(null, "Deseja fechar a aplicação?", "Saída",
 						JOptionPane.YES_NO_OPTION);
@@ -469,10 +440,10 @@ public class Tela extends JFrame {
 				}
 			}
 		});
-		btnIDSair_1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnIDSair_1_1_1.setBackground(new Color(255, 128, 64));
-		btnIDSair_1_1_1.setBounds(530, 11, 89, 23);
-		tabConsultaSubarea.add(btnIDSair_1_1_1);
+		btnSubSair.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnSubSair.setBackground(new Color(255, 128, 64));
+		btnSubSair.setBounds(530, 11, 89, 23);
+		tabConsultaSubarea.add(btnSubSair);
 
 		JLabel lblSubSubarea = new JLabel("Subárea");
 		lblSubSubarea.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -502,9 +473,11 @@ public class Tela extends JFrame {
 		InserirAlunos cAlunos = new InserirAlunos(tfAlunoNome, tfAlunoRa);
 		InserirGrupos cGrupos = new InserirGrupos(tfGrupoTema, tfGrupoArea, tfGrupoSubarea, tfGrupoRaAluno,
 				taGrupoListaAluno);
+		ConsultarGrupo cID = new ConsultarGrupo(tfIDGrupo, taIDTema, taIDArea, taIDSubarea, taIDLista);
 
 		btnAlunoCadastrar.addActionListener(cAlunos);
 		btnGrupoBuscar.addActionListener(cGrupos);
 		btnGrupoRegistrar.addActionListener(cGrupos);
+		btnIDBuscar.addActionListener(cID);
 	}
 }
