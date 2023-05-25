@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-import br.edu.fateczl.pilhas.Pilha;
 import br.edu.fateczl.listas.Lista;
 
 public class Grupo {
@@ -13,7 +12,7 @@ public class Grupo {
 	private String tema;
 	private Area area;
 	private Subarea subarea;
-	public Lista integrantes;
+	private Lista integrantes;
 
 	public Grupo() {
 	}
@@ -25,7 +24,7 @@ public class Grupo {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public int getCodigo() {
 		return codigo;
 	}
@@ -34,7 +33,7 @@ public class Grupo {
 
 		String path = System.getProperty("user.home") + File.separator + "SistemaTCC" + File.separator + "grupos.csv";
 		File arquivo = new File(path);
-		
+
 		if (!arquivo.exists()) {
 			return 1;
 		} else {
@@ -42,23 +41,23 @@ public class Grupo {
 			InputStreamReader leitor = new InputStreamReader(fluxo);
 			BufferedReader buffer = new BufferedReader(leitor);
 			String ultimalinha = "", linha = buffer.readLine();
-			
+
 			while (linha != null) {
 				ultimalinha = linha;
 				linha = buffer.readLine();
 			}
-		
+
 			fluxo.close();
 			leitor.close();
 			buffer.close();
-			
+
 			String[] id = ultimalinha.split(";");
-	
-			return Integer.parseInt(id[0]+1);
+
+			return Integer.parseInt(id[0])+1;
 
 		}
 	}
-	
+
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
@@ -98,7 +97,7 @@ public class Grupo {
 	@Override
 	public String toString() {
 		return getCodigo() + ";" + getTema() + ";" + area.getNome() + ";" + subarea.getNome() + ";"
-				+ integrantes.toString();
+				+ getIntegrantes().toString();
 	}
 
 }

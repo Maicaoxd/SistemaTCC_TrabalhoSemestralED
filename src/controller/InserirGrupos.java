@@ -27,6 +27,7 @@ public class InserirGrupos implements ActionListener {
 	private JTextField tfGrupoRaAluno;
 	private JTextArea taGrupoListaAluno;
 	Grupo grupo = new Grupo();
+	Lista alunos = new Lista();
 
 	public InserirGrupos(JTextField tfGrupoTema, JTextField tfGrupoArea, JTextField tfGrupoSubarea,
 			JTextField tfGrupoRaAluno, JTextArea taGrupoListaAluno) {
@@ -41,17 +42,22 @@ public class InserirGrupos implements ActionListener {
 		String cmd = e.getActionCommand();
 		try {
 			if (cmd.equals("Buscar Aluno")) {
-				grupo.setIntegrantes(buscar(grupo));
+				alunos = buscar(grupo, alunos);
 				tfGrupoRaAluno.setText("");
 			} else if (cmd.equals("Registrar Grupo")) {
+				grupo.setIntegrantes(alunos);
 				registrar(grupo);
 				tfGrupoTema.setText("");
 				tfGrupoArea.setText("");
 				tfGrupoSubarea.setText("");
 				tfGrupoRaAluno.setText("");
 				taGrupoListaAluno.setText("");
+				while (!alunos.vazia()) {
+					alunos.removefirst();
+				}
+				grupo.setIntegrantes(alunos);
 			}
-		} catch (IOException e1) {
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 	}
@@ -59,7 +65,7 @@ public class InserirGrupos implements ActionListener {
 	private void registrar(Grupo grupo) throws IOException {
 		Area area = new Area();
 		Subarea subarea = new Subarea();
-		
+
 		grupo.setCodigo();
 		grupo.setTema(tfGrupoTema.getText());
 
@@ -94,22 +100,18 @@ public class InserirGrupos implements ActionListener {
 		fw.close();
 	}
 
-	private Lista buscar(Grupo grupo) throws IOException {
-		Lista lista = new Lista();
+	private Lista buscar(Grupo grupo, Lista alunos) throws IOException {
 		Aluno aluno = new Aluno();
-
 		aluno.setRA(tfGrupoRaAluno.getText());
 		aluno = buscaAluno(aluno);
 
 		if (aluno.getNome() != null) {
-
+			alunos.addfirst(aluno);
 			taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome() + "\n\r");
-			lista.addfirst(aluno);
-
 		} else {
-			taGrupoListaAluno.setText("Aluno não encontrado");
+			taGrupoListaAluno.append("Aluno não encontrado\n\r");
 		}
-		return lista;
+		return alunos;
 	}
 
 	private Aluno buscaAluno(Aluno aluno) throws IOException {
