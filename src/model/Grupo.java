@@ -34,30 +34,28 @@ public class Grupo {
 
 		String path = System.getProperty("user.home") + File.separator + "SistemaTCC" + File.separator + "grupos.csv";
 		File arquivo = new File(path);
-
+		
 		if (!arquivo.exists()) {
 			return 1;
 		} else {
-			Pilha leitura = new Pilha();
-
 			FileInputStream fluxo = new FileInputStream(arquivo);
 			InputStreamReader leitor = new InputStreamReader(fluxo);
 			BufferedReader buffer = new BufferedReader(leitor);
-			String linha = buffer.readLine();
-
+			String ultimalinha = "", linha = buffer.readLine();
+			
 			while (linha != null) {
-				leitura.push(linha);
+				ultimalinha = linha;
 				linha = buffer.readLine();
 			}
-			String ultimalinha = (String) leitura.pop();
-
-			String[] grupo = ultimalinha.split(";");
-			
+		
 			fluxo.close();
 			leitor.close();
 			buffer.close();
+			
+			String[] id = ultimalinha.split(";");
+	
+			return Integer.parseInt(id[0]+1);
 
-			return Integer.parseInt(grupo[0]) + 1;
 		}
 	}
 	

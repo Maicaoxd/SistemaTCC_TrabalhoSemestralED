@@ -59,7 +59,8 @@ public class InserirGrupos implements ActionListener {
 	private void registrar(Grupo grupo) throws IOException {
 		Area area = new Area();
 		Subarea subarea = new Subarea();
-
+		
+		grupo.setCodigo();
 		grupo.setTema(tfGrupoTema.getText());
 
 		area.setNome(tfGrupoArea.getText());
