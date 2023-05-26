@@ -53,7 +53,7 @@ public class Grupo {
 
 			String[] id = ultimalinha.split(";");
 
-			return Integer.parseInt(id[0])+1;
+			return Integer.parseInt(id[0]) + 1;
 
 		}
 	}

@@ -39,6 +39,9 @@ public class ConsultarGrupo implements ActionListener {
 		if (cmd.equals("Buscar Grupo")) {
 			try {
 				taIDLista.setText("");
+				taIDTema.setText("");
+				taIDArea.setText("");
+				taIDSubarea.setText("");
 				buscar();
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -54,6 +57,7 @@ public class ConsultarGrupo implements ActionListener {
 			taIDTema.setText(grupo.getTema());
 			taIDArea.setText(grupo.getArea().getNome());
 			taIDSubarea.setText(grupo.getSubarea().getNome());
+
 			int tamanho = grupo.getIntegrantes().size();
 			for (int i = 0; i < tamanho; i++) {
 				if (i % 2 != 0) {
@@ -65,6 +69,7 @@ public class ConsultarGrupo implements ActionListener {
 		} else {
 			JOptionPane.showMessageDialog(null, "ID incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
+
 	}
 
 	private Grupo buscarGrupo(Grupo grupo) throws IOException {

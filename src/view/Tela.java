@@ -35,6 +35,7 @@ public class Tela extends JFrame {
 	private JTextField tfOrientacaoData;
 	private JTextField tfOrientacaoDescricao;
 	private JTextField tfSubSubarea;
+	private JTextField tfUltimaGrupo;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -61,8 +62,8 @@ public class Tela extends JFrame {
 		contentPane.setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBackground(new Color(255, 255, 255));
 		tabbedPane.setBounds(0, 0, 634, 441);
+		tabbedPane.setBackground(new Color(255, 255, 255));
 		contentPane.add(tabbedPane);
 
 		JPanel tabAluno = new JPanel();
@@ -290,6 +291,7 @@ public class Tela extends JFrame {
 		tabID.add(taIDSubarea);
 
 		JButton btnIDUltimaOrientacao = new JButton("Última Orientação");
+
 		btnIDUltimaOrientacao.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnIDUltimaOrientacao.setBackground(new Color(128, 255, 0));
 		btnIDUltimaOrientacao.setBounds(118, 328, 169, 47);
@@ -388,11 +390,6 @@ public class Tela extends JFrame {
 		lblUltimaDescricao.setBounds(28, 138, 112, 30);
 		tabConsultaOrientacao.add(lblUltimaDescricao);
 
-		JTextArea taUltimaGrupo = new JTextArea();
-		taUltimaGrupo.setBackground(new Color(248, 248, 248));
-		taUltimaGrupo.setBounds(351, 69, 136, 30);
-		tabConsultaOrientacao.add(taUltimaGrupo);
-
 		JTextArea taUltimaData = new JTextArea();
 		taUltimaData.setBackground(new Color(248, 248, 248));
 		taUltimaData.setBounds(81, 69, 149, 30);
@@ -421,8 +418,13 @@ public class Tela extends JFrame {
 		JButton btnOrientacaoBuscar_1 = new JButton("Buscar Grupo");
 		btnOrientacaoBuscar_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnOrientacaoBuscar_1.setBackground(new Color(0, 255, 64));
-		btnOrientacaoBuscar_1.setBounds(496, 70, 123, 30);
+		btnOrientacaoBuscar_1.setBounds(496, 65, 123, 30);
 		tabConsultaOrientacao.add(btnOrientacaoBuscar_1);
+
+		tfUltimaGrupo = new JTextField();
+		tfUltimaGrupo.setBounds(351, 66, 136, 30);
+		tabConsultaOrientacao.add(tfUltimaGrupo);
+		tfUltimaGrupo.setColumns(10);
 
 		JPanel tabConsultaSubarea = new JPanel();
 		tabConsultaSubarea.setBackground(new Color(255, 255, 255));
@@ -456,13 +458,14 @@ public class Tela extends JFrame {
 		tabConsultaSubarea.add(lblSubListaGrupos);
 
 		tfSubSubarea = new JTextField();
-		tfSubSubarea.setBounds(150, 66, 320, 30);
+		tfSubSubarea.setBounds(150, 66, 310, 30);
 		tabConsultaSubarea.add(tfSubSubarea);
 		tfSubSubarea.setColumns(10);
 
 		JButton btnSubBuscar = new JButton("Buscar Grupos");
+		btnSubBuscar.setBackground(new Color(0, 255, 64));
 		btnSubBuscar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnSubBuscar.setBounds(480, 65, 123, 30);
+		btnSubBuscar.setBounds(470, 65, 149, 30);
 		tabConsultaSubarea.add(btnSubBuscar);
 
 		JTextArea taSubListaGrupos = new JTextArea();
@@ -479,5 +482,19 @@ public class Tela extends JFrame {
 		btnGrupoBuscar.addActionListener(cGrupos);
 		btnGrupoRegistrar.addActionListener(cGrupos);
 		btnIDBuscar.addActionListener(cID);
+
+		btnIDUltimaOrientacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.setSelectedIndex(4);
+				tfUltimaGrupo.setText(tfIDGrupo.getText());
+			}
+		});
+
+		btnIDAdicionarOrientacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.setSelectedIndex(3);
+				tfOrientacaoGrupo.setText(tfIDGrupo.getText());
+			}
+		});
 	}
 }
