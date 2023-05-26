@@ -19,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 import controller.ConsultarGrupo;
 import controller.InserirAlunos;
 import controller.InserirGrupos;
+import controller.InserirOrientacoes;
 
 public class Tela extends JFrame {
 
@@ -477,11 +478,15 @@ public class Tela extends JFrame {
 		InserirGrupos cGrupos = new InserirGrupos(tfGrupoTema, tfGrupoArea, tfGrupoSubarea, tfGrupoRaAluno,
 				taGrupoListaAluno);
 		ConsultarGrupo cID = new ConsultarGrupo(tfIDGrupo, taIDTema, taIDArea, taIDSubarea, taIDLista);
+		InserirOrientacoes cOrientacoes = new InserirOrientacoes(tfOrientacaoGrupo, tfOrientacaoData,
+				tfOrientacaoDescricao);
 
 		btnAlunoCadastrar.addActionListener(cAlunos);
 		btnGrupoBuscar.addActionListener(cGrupos);
 		btnGrupoRegistrar.addActionListener(cGrupos);
 		btnIDBuscar.addActionListener(cID);
+		btnOrientacaoBuscar.addActionListener(cOrientacoes);
+		btnOrientacaoLancar.addActionListener(cOrientacoes);
 
 		btnIDUltimaOrientacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

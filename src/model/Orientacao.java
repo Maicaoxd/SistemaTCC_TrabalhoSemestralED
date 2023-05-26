@@ -4,7 +4,8 @@ public class Orientacao {
 
 	private Grupo grupo;
 	private Orientador orientador;
-	private int data;
+	private String data;
+	private String descricao;
 
 	public Orientacao() {
 
@@ -26,12 +27,25 @@ public class Orientacao {
 		this.orientador = orientador;
 	}
 
-	public int getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(int data) {
+	public void setData(String data) {
 		this.data = data;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	@Override
+	public String toString() {
+		return grupo.getCodigo() + ";" + data + ";" + descricao;
 	}
 
 }

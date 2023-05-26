@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import model.Aluno;
@@ -59,6 +60,7 @@ public class InserirAlunos implements ActionListener {
 		pw.flush();
 		pw.close();
 		fw.close();
+		JOptionPane.showMessageDialog(null, "Aluno Cadastrado Com Sucesso");
 	}
 
 }

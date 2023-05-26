@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -98,6 +99,7 @@ public class InserirGrupos implements ActionListener {
 		pw.flush();
 		pw.close();
 		fw.close();
+		JOptionPane.showMessageDialog(null, "Grupo Cadastrado Com Sucesso\n\rID do Grupo: " + grupo.getCodigo());
 	}
 
 	private Lista buscar(Grupo grupo, Lista alunos) throws IOException {

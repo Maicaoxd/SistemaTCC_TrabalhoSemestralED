@@ -2,7 +2,8 @@ package model;
 
 public class Orientador {
 
-	private String usuario, senha;
+	private String usuario;
+	private String senha;
 	private String nome;
 	private Area area;
 	private Subarea[] subareas;
