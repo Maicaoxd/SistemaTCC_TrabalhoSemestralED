@@ -38,11 +38,15 @@ public class ConsultarGrupo implements ActionListener {
 		String cmd = e.getActionCommand();
 		if (cmd.equals("Buscar Grupo")) {
 			try {
-				taIDLista.setText("");
-				taIDTema.setText("");
-				taIDArea.setText("");
-				taIDSubarea.setText("");
-				buscar();
+				if (!tfIDGrupo.getText().isEmpty()) {
+					taIDLista.setText("");
+					taIDTema.setText("");
+					taIDArea.setText("");
+					taIDSubarea.setText("");
+					buscar();
+				} else {
+					JOptionPane.showMessageDialog(null, "Insira o ID do grupo", "ERRO", JOptionPane.ERROR_MESSAGE);
+				}
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}

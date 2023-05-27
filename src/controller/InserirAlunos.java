@@ -27,7 +27,11 @@ public class InserirAlunos implements ActionListener {
 		String cmd = e.getActionCommand();
 		if (cmd.equals("Registrar")) {
 			try {
-				registrar();
+				if (!tfAlunoNome.getText().isEmpty() && !tfAlunoRa.getText().isEmpty()) {
+					registrar();
+				} else {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos", "ERRO", JOptionPane.ERROR_MESSAGE);
+				}
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}

@@ -20,7 +20,6 @@ import model.Orientacao;
 import model.Subarea;
 
 public class InserirOrientacoes implements ActionListener {
-//	Uma tela que permita ao orientador inserir, orientações, em uma Estrutura de Dados.
 
 	private JTextField tfOrientacaoGrupo;
 	private JTextField tfOrientacaoData;
@@ -39,22 +38,29 @@ public class InserirOrientacoes implements ActionListener {
 		String cmd = e.getActionCommand();
 		if (cmd.equals("Buscar Grupo")) {
 			try {
-				grupo = buscar(grupo);
+				if (!tfOrientacaoGrupo.getText().isEmpty()) {
+					grupo = buscar(grupo);
+				} else {
+					JOptionPane.showMessageDialog(null, "Insira o ID do grupo", "ERRO", JOptionPane.ERROR_MESSAGE);
+				}
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		} else if (cmd.equals("Lançar Orientação")) {
-			if (grupo.getCodigo() != 0) {
-				try {
+			try {
+				if (grupo.getCodigo() != 0 && !tfOrientacaoData.getText().isEmpty()
+						&& !tfOrientacaoDescricao.getText().isEmpty()) {
 					registrar(grupo);
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					tfOrientacaoGrupo.setText("");
+					tfOrientacaoData.setText("");
+					tfOrientacaoDescricao.setText("");
+				} else if (!tfOrientacaoGrupo.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Faça a busca do grupo", "ERRO", JOptionPane.ERROR_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos", "ERRO", JOptionPane.ERROR_MESSAGE);
 				}
-				tfOrientacaoGrupo.setText("");
-				tfOrientacaoData.setText("");
-				tfOrientacaoDescricao.setText("");
-			} else {
-				JOptionPane.showMessageDialog(null, "Insira o ID do Grupo", "ERRO", JOptionPane.ERROR_MESSAGE);
+			} catch (IOException e1) {
+				e1.printStackTrace();
 			}
 		}
 

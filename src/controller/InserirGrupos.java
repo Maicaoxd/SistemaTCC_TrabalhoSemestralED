@@ -43,20 +43,29 @@ public class InserirGrupos implements ActionListener {
 		String cmd = e.getActionCommand();
 		try {
 			if (cmd.equals("Buscar Aluno")) {
-				alunos = buscar(grupo, alunos);
-				tfGrupoRaAluno.setText("");
-			} else if (cmd.equals("Registrar Grupo")) {
-				grupo.setIntegrantes(alunos);
-				registrar(grupo);
-				tfGrupoTema.setText("");
-				tfGrupoArea.setText("");
-				tfGrupoSubarea.setText("");
-				tfGrupoRaAluno.setText("");
-				taGrupoListaAluno.setText("");
-				while (!alunos.vazia()) {
-					alunos.removefirst();
+				if (!tfGrupoRaAluno.getText().isEmpty()) {
+					alunos = buscar(grupo, alunos);
+					tfGrupoRaAluno.setText("");
+				} else {
+					JOptionPane.showMessageDialog(null, "Insira o RA do aluno", "ERRO", JOptionPane.ERROR_MESSAGE);
 				}
-				grupo.setIntegrantes(alunos);
+			} else if (cmd.equals("Registrar Grupo")) {
+				if (!tfGrupoArea.getText().isEmpty() && !tfGrupoSubarea.getText().isEmpty()
+						&& !tfGrupoTema.getText().isEmpty() && !taGrupoListaAluno.getText().isEmpty()) {
+					grupo.setIntegrantes(alunos);
+					registrar(grupo);
+					tfGrupoTema.setText("");
+					tfGrupoArea.setText("");
+					tfGrupoSubarea.setText("");
+					tfGrupoRaAluno.setText("");
+					taGrupoListaAluno.setText("");
+					while (!alunos.vazia()) {
+						alunos.removefirst();
+					}
+					grupo.setIntegrantes(alunos);
+				} else {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos", "ERRO", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		} catch (Exception e1) {
 			e1.printStackTrace();
@@ -111,7 +120,7 @@ public class InserirGrupos implements ActionListener {
 			alunos.addfirst(aluno);
 			taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome() + "\n\r");
 		} else {
-			taGrupoListaAluno.append("Aluno não encontrado\n\r");
+			JOptionPane.showMessageDialog(null, "Aluno não encontrado", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 		return alunos;
 	}

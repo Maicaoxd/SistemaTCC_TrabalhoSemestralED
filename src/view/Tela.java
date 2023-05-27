@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.ConsultarGrupo;
+import controller.ConsultarOrientacao;
 import controller.InserirAlunos;
 import controller.InserirGrupos;
 import controller.InserirOrientacoes;
@@ -416,11 +417,11 @@ public class Tela extends JFrame {
 		btnUltimaSair.setBounds(530, 11, 89, 23);
 		tabConsultaOrientacao.add(btnUltimaSair);
 
-		JButton btnOrientacaoBuscar_1 = new JButton("Buscar Grupo");
-		btnOrientacaoBuscar_1.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		btnOrientacaoBuscar_1.setBackground(new Color(0, 255, 64));
-		btnOrientacaoBuscar_1.setBounds(496, 65, 123, 30);
-		tabConsultaOrientacao.add(btnOrientacaoBuscar_1);
+		JButton btnUltimaBuscar = new JButton("Buscar Grupo");
+		btnUltimaBuscar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		btnUltimaBuscar.setBackground(new Color(0, 255, 64));
+		btnUltimaBuscar.setBounds(496, 65, 123, 30);
+		tabConsultaOrientacao.add(btnUltimaBuscar);
 
 		tfUltimaGrupo = new JTextField();
 		tfUltimaGrupo.setBounds(351, 66, 136, 30);
@@ -480,6 +481,7 @@ public class Tela extends JFrame {
 		ConsultarGrupo cID = new ConsultarGrupo(tfIDGrupo, taIDTema, taIDArea, taIDSubarea, taIDLista);
 		InserirOrientacoes cOrientacoes = new InserirOrientacoes(tfOrientacaoGrupo, tfOrientacaoData,
 				tfOrientacaoDescricao);
+		ConsultarOrientacao cUltima = new ConsultarOrientacao(tfUltimaGrupo, taUltimaData, taUltimaDescricao);
 
 		btnAlunoCadastrar.addActionListener(cAlunos);
 		btnGrupoBuscar.addActionListener(cGrupos);
@@ -487,6 +489,7 @@ public class Tela extends JFrame {
 		btnIDBuscar.addActionListener(cID);
 		btnOrientacaoBuscar.addActionListener(cOrientacoes);
 		btnOrientacaoLancar.addActionListener(cOrientacoes);
+		btnUltimaBuscar.addActionListener(cUltima);
 
 		btnIDUltimaOrientacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
