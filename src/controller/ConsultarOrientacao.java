@@ -34,16 +34,16 @@ public class ConsultarOrientacao implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 		if (cmd.equals("Buscar Grupo")) {
+			taUltimaData.setText("");
+			taUltimaDescricao.setText("");
 			try {
 				if (!tfUltimaGrupo.getText().isEmpty()) {
-					taUltimaData.setText("");
-					taUltimaDescricao.setText("");
 					buscar();
 				} else {
 					JOptionPane.showMessageDialog(null, "Insira o ID do grupo", "ERRO", JOptionPane.ERROR_MESSAGE);
 				}
 			} catch (Exception e1) {
-				e1.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Grupo Sem Orientacao", "ERRO", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

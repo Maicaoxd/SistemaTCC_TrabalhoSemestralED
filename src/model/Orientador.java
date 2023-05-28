@@ -5,8 +5,6 @@ public class Orientador {
 	private String usuario;
 	private String senha;
 	private String nome;
-	private Area area;
-	private Subarea[] subareas;
 
 	public Orientador(String usuario, String senha) {
 		this.usuario = usuario;

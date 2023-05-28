@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import controller.ConsultarGrupo;
 import controller.ConsultarOrientacao;
+import controller.ConsultarSubGrupo;
 import controller.InserirAlunos;
 import controller.InserirGrupos;
 import controller.InserirOrientacoes;
@@ -472,7 +473,7 @@ public class Tela extends JFrame {
 
 		JTextArea taSubListaGrupos = new JTextArea();
 		taSubListaGrupos.setBackground(new Color(248, 248, 248));
-		taSubListaGrupos.setBounds(150, 134, 320, 257);
+		taSubListaGrupos.setBounds(150, 134, 320, 217);
 		tabConsultaSubarea.add(taSubListaGrupos);
 
 		InserirAlunos cAlunos = new InserirAlunos(tfAlunoNome, tfAlunoRa);
@@ -482,6 +483,7 @@ public class Tela extends JFrame {
 		InserirOrientacoes cOrientacoes = new InserirOrientacoes(tfOrientacaoGrupo, tfOrientacaoData,
 				tfOrientacaoDescricao);
 		ConsultarOrientacao cUltima = new ConsultarOrientacao(tfUltimaGrupo, taUltimaData, taUltimaDescricao);
+		ConsultarSubGrupo cSub = new ConsultarSubGrupo(tfSubSubarea, taSubListaGrupos);
 
 		btnAlunoCadastrar.addActionListener(cAlunos);
 		btnGrupoBuscar.addActionListener(cGrupos);
@@ -490,6 +492,7 @@ public class Tela extends JFrame {
 		btnOrientacaoBuscar.addActionListener(cOrientacoes);
 		btnOrientacaoLancar.addActionListener(cOrientacoes);
 		btnUltimaBuscar.addActionListener(cUltima);
+		btnSubBuscar.addActionListener(cSub);
 
 		btnIDUltimaOrientacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

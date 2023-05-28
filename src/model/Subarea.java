@@ -1,8 +1,9 @@
 package model;
 
+import java.util.Objects;
+
 public class Subarea {
 	private String nome;
-	private Area area;
 
 	public Subarea() {
 	}
@@ -15,12 +16,9 @@ public class Subarea {
 		this.nome = nome;
 	}
 
-	public Area getArea() {
-		return area;
-	}
-
-	public void setArea(Area area) {
-		this.area = area;
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome);
 	}
 
 }
