@@ -62,10 +62,10 @@ public class Login extends JFrame {
 		contentPane.add(txfUser);
 		txfUser.setColumns(10);
 
-		JLabel lblUsuario = new JLabel("Usuário");
-		lblUsuario.setBounds(166, 167, 59, 14);
-		lblUsuario.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		contentPane.add(lblUsuario);
+		JLabel lblnome = new JLabel("Nome");
+		lblnome.setBounds(166, 167, 59, 14);
+		lblnome.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
+		contentPane.add(lblnome);
 
 		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setBounds(166, 239, 46, 14);
@@ -76,10 +76,10 @@ public class Login extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				String usuario = txfUser.getText();
+				String nome = txfUser.getText();
 				String senha = String.valueOf(passfSenha.getPassword());
 
-				if (usuario.equals(adm.getUsuario()) && senha.equals(adm.getSenha())) {
+				if (nome.equals(adm.getNome()) && senha.equals(adm.getSenha())) {
 					Tela m = new Tela();
 					Login.this.dispose();
 					m.setVisible(true);

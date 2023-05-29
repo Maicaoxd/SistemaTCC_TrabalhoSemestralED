@@ -302,18 +302,18 @@ public class Tela extends JFrame {
 
 		JPanel tabOrientacao = new JPanel();
 		tabOrientacao.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Definir Orientação", null, tabOrientacao, "Defina Uma Orientação Para Algum Grupo");
+		tabbedPane.addTab("Registrar Orientação", null, tabOrientacao, "Defina Uma Orientação Para Algum Grupo");
 		tabOrientacao.setLayout(null);
 
 		JLabel lblOrientacaoGrupo = new JLabel("ID do Grupo");
 		lblOrientacaoGrupo.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblOrientacaoGrupo.setBounds(189, 67, 88, 30);
+		lblOrientacaoGrupo.setBounds(10, 68, 88, 30);
 		tabOrientacao.add(lblOrientacaoGrupo);
 
 		tfOrientacaoGrupo = new JTextField();
 		tfOrientacaoGrupo.setBackground(new Color(248, 248, 248));
 		tfOrientacaoGrupo.setColumns(10);
-		tfOrientacaoGrupo.setBounds(280, 68, 186, 30);
+		tfOrientacaoGrupo.setBounds(108, 69, 186, 30);
 		tabOrientacao.add(tfOrientacaoGrupo);
 
 		JButton btnOrientacaoBuscar = new JButton("Buscar Grupo");
@@ -323,18 +323,18 @@ public class Tela extends JFrame {
 		});
 		btnOrientacaoBuscar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnOrientacaoBuscar.setBackground(new Color(0, 255, 64));
-		btnOrientacaoBuscar.setBounds(476, 67, 123, 30);
+		btnOrientacaoBuscar.setBounds(306, 68, 123, 30);
 		tabOrientacao.add(btnOrientacaoBuscar);
 
 		JLabel lblOrientacaoData = new JLabel("Data");
 		lblOrientacaoData.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblOrientacaoData.setBounds(28, 67, 43, 30);
+		lblOrientacaoData.setBounds(439, 68, 43, 30);
 		tabOrientacao.add(lblOrientacaoData);
 
 		tfOrientacaoData = new JTextField();
 		tfOrientacaoData.setBackground(new Color(248, 248, 248));
 		tfOrientacaoData.setColumns(10);
-		tfOrientacaoData.setBounds(67, 67, 112, 30);
+		tfOrientacaoData.setBounds(478, 68, 141, 30);
 		tabOrientacao.add(tfOrientacaoData);
 
 		JLabel lblOrientacaoDescricao = new JLabel("Descrição");
@@ -375,17 +375,17 @@ public class Tela extends JFrame {
 
 		JPanel tabConsultaOrientacao = new JPanel();
 		tabConsultaOrientacao.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Última Orientação", null, tabConsultaOrientacao, "Consulte a Última Orientação Definida");
+		tabbedPane.addTab("Consultar Última Orientação", null, tabConsultaOrientacao, "Consulte a Última Orientação Definida");
 		tabConsultaOrientacao.setLayout(null);
 
 		JLabel lblUltimaGrupo = new JLabel("ID do Grupo");
 		lblUltimaGrupo.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblUltimaGrupo.setBounds(253, 65, 88, 30);
+		lblUltimaGrupo.setBounds(28, 67, 88, 30);
 		tabConsultaOrientacao.add(lblUltimaGrupo);
 
 		JLabel lblUltimaData = new JLabel("Data");
 		lblUltimaData.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblUltimaData.setBounds(28, 65, 43, 30);
+		lblUltimaData.setBounds(417, 67, 43, 30);
 		tabConsultaOrientacao.add(lblUltimaData);
 
 		JLabel lblUltimaDescricao = new JLabel("Descrição");
@@ -395,7 +395,7 @@ public class Tela extends JFrame {
 
 		JTextArea taUltimaData = new JTextArea();
 		taUltimaData.setBackground(new Color(248, 248, 248));
-		taUltimaData.setBounds(81, 69, 149, 30);
+		taUltimaData.setBounds(470, 67, 149, 30);
 		tabConsultaOrientacao.add(taUltimaData);
 
 		JTextArea taUltimaDescricao = new JTextArea();
@@ -421,17 +421,17 @@ public class Tela extends JFrame {
 		JButton btnUltimaBuscar = new JButton("Buscar Grupo");
 		btnUltimaBuscar.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		btnUltimaBuscar.setBackground(new Color(0, 255, 64));
-		btnUltimaBuscar.setBounds(496, 65, 123, 30);
+		btnUltimaBuscar.setBounds(271, 67, 123, 30);
 		tabConsultaOrientacao.add(btnUltimaBuscar);
 
 		tfUltimaGrupo = new JTextField();
-		tfUltimaGrupo.setBounds(351, 66, 136, 30);
+		tfUltimaGrupo.setBounds(126, 68, 136, 30);
 		tabConsultaOrientacao.add(tfUltimaGrupo);
 		tfUltimaGrupo.setColumns(10);
 
 		JPanel tabConsultaSubarea = new JPanel();
 		tabConsultaSubarea.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Consultar Por Subárea", null, tabConsultaSubarea,
+		tabbedPane.addTab("Consultar por Subárea", null, tabConsultaSubarea,
 				"Consulte Uma Lista de Grupos Por Subárea");
 		tabConsultaSubarea.setLayout(null);
 

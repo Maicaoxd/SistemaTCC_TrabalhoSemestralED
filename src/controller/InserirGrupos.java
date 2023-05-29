@@ -27,6 +27,7 @@ public class InserirGrupos implements ActionListener {
 	private JTextField tfGrupoSubarea;
 	private JTextField tfGrupoRaAluno;
 	private JTextArea taGrupoListaAluno;
+	private static int cnt = 0;
 	Grupo grupo = new Grupo();
 	Lista alunos = new Lista();
 
@@ -52,6 +53,7 @@ public class InserirGrupos implements ActionListener {
 			} else if (cmd.equals("Registrar Grupo")) {
 				if (!tfGrupoArea.getText().isEmpty() && !tfGrupoSubarea.getText().isEmpty()
 						&& !tfGrupoTema.getText().isEmpty() && !taGrupoListaAluno.getText().isEmpty()) {
+					cnt = 0;
 					grupo.setIntegrantes(alunos);
 					registrar(grupo);
 					tfGrupoTema.setText("");
@@ -117,8 +119,14 @@ public class InserirGrupos implements ActionListener {
 		aluno = buscaAluno(aluno);
 
 		if (aluno.getNome() != null) {
-			alunos.addfirst(aluno);
-			taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome() + "\n\r");
+			if (cnt < 4) {
+				cnt++;
+				alunos.addfirst(aluno);
+				taGrupoListaAluno.append("RA: " + aluno.getRA() + " - Nome: " + aluno.getNome() + "\n\r");
+			} else {
+				JOptionPane.showMessageDialog(null, "Capacidade máxima de alunos por grupo", "ERRO",
+						JOptionPane.ERROR_MESSAGE);
+			}
 		} else {
 			JOptionPane.showMessageDialog(null, "Aluno não encontrado", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
