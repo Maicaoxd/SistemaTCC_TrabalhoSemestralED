@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,10 +17,10 @@ import javax.swing.border.EmptyBorder;
 
 import controller.ConsultarGrupo;
 import controller.ConsultarOrientacao;
-import controller.ConsultarSubGrupo;
-import controller.InserirAlunos;
-import controller.InserirGrupos;
-import controller.InserirOrientacoes;
+import controller.ConsultarSubarea;
+import controller.RegistrarAlunos;
+import controller.RegistrarGrupos;
+import controller.RegistrarOrientacoes;
 
 public class Tela extends JFrame {
 
@@ -40,18 +39,12 @@ public class Tela extends JFrame {
 	private JTextField tfSubSubarea;
 	private JTextField tfUltimaGrupo;
 
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Tela frame = new Tela();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	} */
+	/*
+	 * public static void main(String[] args) { EventQueue.invokeLater(new
+	 * Runnable() { public void run() { try { Tela frame = new Tela();
+	 * frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); } } });
+	 * }
+	 */
 
 	public Tela() {
 		setTitle("Sistema de TCC");
@@ -375,7 +368,8 @@ public class Tela extends JFrame {
 
 		JPanel tabConsultaOrientacao = new JPanel();
 		tabConsultaOrientacao.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Consultar Última Orientação", null, tabConsultaOrientacao, "Consulte a Última Orientação Definida");
+		tabbedPane.addTab("Consultar Última Orientação", null, tabConsultaOrientacao,
+				"Consulte a Última Orientação Definida");
 		tabConsultaOrientacao.setLayout(null);
 
 		JLabel lblUltimaGrupo = new JLabel("ID do Grupo");
@@ -476,14 +470,14 @@ public class Tela extends JFrame {
 		taSubListaGrupos.setBounds(150, 134, 320, 217);
 		tabConsultaSubarea.add(taSubListaGrupos);
 
-		InserirAlunos cAlunos = new InserirAlunos(tfAlunoNome, tfAlunoRa);
-		InserirGrupos cGrupos = new InserirGrupos(tfGrupoTema, tfGrupoArea, tfGrupoSubarea, tfGrupoRaAluno,
+		RegistrarAlunos cAlunos = new RegistrarAlunos(tfAlunoNome, tfAlunoRa);
+		RegistrarGrupos cGrupos = new RegistrarGrupos(tfGrupoTema, tfGrupoArea, tfGrupoSubarea, tfGrupoRaAluno,
 				taGrupoListaAluno);
 		ConsultarGrupo cID = new ConsultarGrupo(tfIDGrupo, taIDTema, taIDArea, taIDSubarea, taIDLista);
-		InserirOrientacoes cOrientacoes = new InserirOrientacoes(tfOrientacaoGrupo, tfOrientacaoData,
+		RegistrarOrientacoes cOrientacoes = new RegistrarOrientacoes(tfOrientacaoGrupo, tfOrientacaoData,
 				tfOrientacaoDescricao);
 		ConsultarOrientacao cUltima = new ConsultarOrientacao(tfUltimaGrupo, taUltimaData, taUltimaDescricao);
-		ConsultarSubGrupo cSub = new ConsultarSubGrupo(tfSubSubarea, taSubListaGrupos);
+		ConsultarSubarea cSub = new ConsultarSubarea(tfSubSubarea, taSubListaGrupos);
 
 		btnAlunoCadastrar.addActionListener(cAlunos);
 		btnGrupoBuscar.addActionListener(cGrupos);

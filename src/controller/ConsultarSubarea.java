@@ -17,13 +17,13 @@ import model.Area;
 import model.Grupo;
 import model.Subarea;
 
-public class ConsultarSubGrupo implements ActionListener {
+public class ConsultarSubarea implements ActionListener {
 
 	private JTextField tfSubSubarea;
 	private JTextArea taSubListaGrupos;
 	private Lista[] tabelaHash;
 
-	public ConsultarSubGrupo(JTextField tfSubSubarea, JTextArea taSubListaGrupos) {
+	public ConsultarSubarea(JTextField tfSubSubarea, JTextArea taSubListaGrupos) {
 		this.tfSubSubarea = tfSubSubarea;
 		this.taSubListaGrupos = taSubListaGrupos;
 		tabelaHash = new Lista[1024];

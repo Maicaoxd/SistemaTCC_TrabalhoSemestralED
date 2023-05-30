@@ -19,14 +19,14 @@ import model.Grupo;
 import model.Orientacao;
 import model.Subarea;
 
-public class InserirOrientacoes implements ActionListener {
+public class RegistrarOrientacoes implements ActionListener {
 
 	private JTextField tfOrientacaoGrupo;
 	private JTextField tfOrientacaoData;
 	private JTextField tfOrientacaoDescricao;
 	Grupo grupo = new Grupo();
 
-	public InserirOrientacoes(JTextField tfOrientacaoGrupo, JTextField tfOrientacaoData,
+	public RegistrarOrientacoes(JTextField tfOrientacaoGrupo, JTextField tfOrientacaoData,
 			JTextField tfOrientacaoDescricao) {
 		this.tfOrientacaoGrupo = tfOrientacaoGrupo;
 		this.tfOrientacaoData = tfOrientacaoData;

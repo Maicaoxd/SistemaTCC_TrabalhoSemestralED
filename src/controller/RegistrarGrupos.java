@@ -20,7 +20,7 @@ import model.Area;
 import model.Grupo;
 import model.Subarea;
 
-public class InserirGrupos implements ActionListener {
+public class RegistrarGrupos implements ActionListener {
 
 	private JTextField tfGrupoTema;
 	private JTextField tfGrupoArea;
@@ -31,7 +31,7 @@ public class InserirGrupos implements ActionListener {
 	Grupo grupo = new Grupo();
 	Lista alunos = new Lista();
 
-	public InserirGrupos(JTextField tfGrupoTema, JTextField tfGrupoArea, JTextField tfGrupoSubarea,
+	public RegistrarGrupos(JTextField tfGrupoTema, JTextField tfGrupoArea, JTextField tfGrupoSubarea,
 			JTextField tfGrupoRaAluno, JTextArea taGrupoListaAluno) {
 		this.tfGrupoTema = tfGrupoTema;
 		this.tfGrupoArea = tfGrupoArea;

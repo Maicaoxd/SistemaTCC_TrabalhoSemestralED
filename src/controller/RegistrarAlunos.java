@@ -15,12 +15,12 @@ import javax.swing.JTextField;
 
 import model.Aluno;
 
-public class InserirAlunos implements ActionListener {
+public class RegistrarAlunos implements ActionListener {
 
 	private JTextField tfAlunoNome;
 	private JTextField tfAlunoRa;
 
-	public InserirAlunos(JTextField tfAlunoNome, JTextField tfAlunoRa) {
+	public RegistrarAlunos(JTextField tfAlunoNome, JTextField tfAlunoRa) {
 		this.tfAlunoNome = tfAlunoNome;
 		this.tfAlunoRa = tfAlunoRa;
 	}
