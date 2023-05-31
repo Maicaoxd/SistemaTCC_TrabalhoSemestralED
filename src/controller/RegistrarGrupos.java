@@ -53,6 +53,7 @@ public class RegistrarGrupos implements ActionListener {
 			} else if (cmd.equals("Registrar Grupo")) {
 				if (!tfGrupoArea.getText().isEmpty() && !tfGrupoSubarea.getText().isEmpty()
 						&& !tfGrupoTema.getText().isEmpty() && !taGrupoListaAluno.getText().isEmpty()) {
+					alunos = ordenar(alunos);
 					cnt = 0;
 					grupo.setIntegrantes(alunos);
 					registrar(grupo);
@@ -72,6 +73,21 @@ public class RegistrarGrupos implements ActionListener {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
+	}
+
+	private Lista ordenar(Lista alunos) throws Exception {
+		int size = alunos.size();
+		for (int bs = 1; bs< size; bs ++) {
+			for(int i = 0  ; i<(size - bs); i++){
+				Aluno alu = (Aluno) alunos.get(i);
+				Aluno uno = (Aluno) alunos.get(i+1);
+				if(Integer.parseInt(alu.getRA()) < Integer.parseInt(uno.getRA())){
+					alunos.remove(i);
+					alunos.add(alu, i+1);
+				}
+			}
+		}
+		return alunos;
 	}
 
 	private void registrar(Grupo grupo) throws IOException {
